@@ -3,6 +3,10 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
+// The view renderer that renders a collection of data
+// ie. a collection of students info for navigation or something else.
+
+// Create one element at a time
 var individual = Backbone.View.extend({
 	tagName: "article",
 	className: "navBtn",
@@ -16,6 +20,7 @@ var individual = Backbone.View.extend({
 	}
 });
 
+// Placing the elements created above into the collection view renderer.
 module.exports = Backbone.View.extend({
 	tagName: "section",
 	className: "all",

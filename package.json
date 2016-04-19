@@ -9,8 +9,8 @@
     "prewatch": "npm install && npm run compile",
     "watch": "onchange './stylesheets/custom.css' './javascripts/custom.js' -v -- npm run compile"
   },
-  "author": "Kenneth Lim <limzy.kenneth@gmail.com> (http://designerken.be)",
-  "license": "BSD-3-Clause",
+  "author": "CSM BAGD",
+  "license": "BSD-2-Clause",
   "devDependencies": {
     "autoprefixer": "~5.2.0",
     "browserify": "~10.2.0",
