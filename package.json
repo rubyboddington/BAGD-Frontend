@@ -1,0 +1,36 @@
+{
+  "name": "bagd-frontend",
+  "version": "0.0.1",
+  "description": "Font end for BAGD website.",
+  "scripts": {
+    "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-simple-vars --use postcss-nesting --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
+    "precompile": "npm run build",
+    "compile": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js && cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
+    "prewatch": "npm install && npm run compile",
+    "watch": "onchange './stylesheets/custom.css' './javascripts/custom.js' -v -- npm run compile"
+  },
+  "author": "Kenneth Lim <limzy.kenneth@gmail.com> (http://designerken.be)",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "autoprefixer": "~5.2.0",
+    "browserify": "~10.2.0",
+    "browserify-shim": "~3.8.9",
+    "clean-css": "~3.3.9",
+    "onchange": "~1.1.0",
+    "postcss": "^5.0.19",
+    "postcss-nesting": "^2.3.1",
+    "postcss-simple-vars": "^1.2.0",
+    "uglify-js": "~2.4.24"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:$",
+    "underscore": "global:_",
+    "backbone": "global:Backbone"
+  },
+  "dependencies": {}
+}
