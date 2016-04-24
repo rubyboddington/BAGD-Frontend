@@ -6,18 +6,20 @@ Backbone.$ = $;
 var students_data = require("./collection.js");
 var singleView = require("./singleView.js");
 
+$.holdReady(true);
+$("#page-content").css('display', 'none');
 
 // Fetch data from the backend
 // Anything that needs doing before data is loaded should be here as well.
 var receivedData = new Event("receivedData");
-$(document).ready(function() {
-	students_data.fetch({
-		// Dispatch the received data event after the data is succesfully loaded
-		success: function(){
-			window.dispatchEvent(receivedData);
-		}
-	});
+
+students_data.fetch({
+	// Dispatch the received data event after the data is succesfully loaded
+	success: function(){
+		window.dispatchEvent(receivedData);
+	}
 });
+
 
 
 // The page logic should go in this callback function (rendering etc.)
@@ -27,5 +29,8 @@ window.addEventListener("receivedData", function(){
 	console.log(students_data.models);
 
 	var students_display = new singleView({model: students_data.at(0)});
-	$("#page-content").html(students_display.render().$el);
+	$("#page-content #wrapper").html(students_display.render().$el);
+
+	$.holdReady(false);
+	$("#page-content").css('display', 'inline');
 });
