@@ -1,21 +1,16 @@
-a{
-}
-
-
 a:link{
-	text-decoration: none;
-	color: #fff;
+	text-decoration:none;
+	color:#fff;
 }
 
 
 a:visited{
-	text-decoration: none;
-	color: #fff;
+	text-decoration:none;
+	color:#fff;
 }
 
 
-a:hover{
-}
+a:hover{}
 
 
 body{
@@ -40,6 +35,25 @@ p{
 	font-size:1em;
 }
 
-#page-content{
+#page-content #wrapper{
+	margin: 0 auto;
+	width: 80%;
+	max-width: 992px;
+}
 
+#page-content .details{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+}
+
+#page-content .details .left{
+	text-align: right;
+	padding: 0 0.5em;
+}
+
+#page-content .details .right{
+	text-align: left;
+	padding: 0 0.5em;
 }

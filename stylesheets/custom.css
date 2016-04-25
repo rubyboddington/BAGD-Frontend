@@ -38,5 +38,22 @@ p{
 }
 
 #page-content{
+	#wrapper{
+		margin: 0 auto;
+		width: 80%;
+		max-width: 992px;
+	}
 
+	.details{
+		display:flex;
+
+		.left{
+			text-align: right;
+			padding: 0 0.5em;
+		}
+		.right{
+			text-align: left;
+			padding: 0 0.5em;
+		}
+	}
 }

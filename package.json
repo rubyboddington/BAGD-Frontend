@@ -4,7 +4,7 @@
   "description": "Font end for BAGD website.",
   "scripts": {
     "postinstall": "./globalDependencies.sh",
-    "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-simple-vars --use postcss-nesting --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
+    "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-simple-vars --use postcss-nested --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
     "precompile": "npm run build",
     "compile": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js && cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
     "prewatch": "npm run compile",
@@ -19,8 +19,6 @@
     "clean-css": "~3.3.9",
     "onchange": "~1.1.0",
     "postcss": "^5.0.19",
-    "postcss-nesting": "^2.3.1",
-    "postcss-simple-vars": "^1.2.0",
     "uglify-js": "~2.4.24"
   },
   "browserify": {
