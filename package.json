@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "description": "Font end for BAGD website.",
   "scripts": {
-    "postinstall": "echo 'Please run the following:\n\nnpm install -g postcss-nesting postcss-simple-vars autoprefixer http-server'",
+    "postinstall": "./globalDependencies.sh",
     "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-simple-vars --use postcss-nesting --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
     "precompile": "npm run build",
     "compile": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js && cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
-    "prewatch": "npm install && npm run compile",
-    "watch": "onchange './stylesheets/custom.css' './javascripts/*' -v -- npm run compile"
+    "prewatch": "npm run compile",
+    "watch": "onchange './stylesheets/custom.css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile"
   },
   "author": "CSM BAGD",
   "license": "BSD-2-Clause",
