@@ -43,7 +43,6 @@ p{
 
 #page-content .details{
 	display:-webkit-box;
-	display:-webkit-flex;
 	display:-ms-flexbox;
 	display:flex;
 }

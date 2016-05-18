@@ -5,6 +5,8 @@ echo ""
 echo "postcss-simple-vars"
 echo "postcss-nested"
 echo "autoprefixer"
+echo "http-server"
+echo "postcss-cli"
 
 TMOUT=10
 echo ""
@@ -16,7 +18,8 @@ if [[ -z $REPLY ]]; then
 fi
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	npm install -g postcss-simple-vars postcss-nested autoprefixer
+	echo "This is going to take awhile....."
+	node globalDependencies.js
 else
 	echo "Global dependencies not installed, don't worry if you already have them."
 fi
