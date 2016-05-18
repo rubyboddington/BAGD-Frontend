@@ -3,25 +3,22 @@
   "version": "0.0.1",
   "description": "Font end for BAGD website.",
   "scripts": {
-    "postinstall": "echo 'Please run the following:\n\nnpm install -g postcss-nesting postcss-simple-vars autoprefixer http-server'",
-    "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-simple-vars --use postcss-nesting --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
+    "postinstall": "./globalDependencies.sh",
+    "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-simple-vars --use postcss-nested --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
     "precompile": "npm run build",
     "compile": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js && cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
-    "prewatch": "npm install && npm run compile",
-    "watch": "onchange './stylesheets/custom.css' './javascripts/*' -v -- npm run compile"
+    "prewatch": "npm run compile",
+    "watch": "onchange './stylesheets/custom.css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile"
   },
   "author": "CSM BAGD",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "autoprefixer": "~5.2.0",
-    "browserify": "~10.2.0",
+    "browserify": "~13.0.1",
     "browserify-shim": "~3.8.9",
-    "clean-css": "~3.3.9",
-    "onchange": "~1.1.0",
+    "clean-css": "~3.4.12",
+    "onchange": "~2.4.0",
     "postcss": "^5.0.19",
-    "postcss-nesting": "^2.3.1",
-    "postcss-simple-vars": "^1.2.0",
-    "uglify-js": "~2.4.24"
+    "uglify-js": "~2.6.2"
   },
   "browserify": {
     "transform": [
@@ -33,5 +30,12 @@
     "underscore": "global:_",
     "backbone": "global:Backbone"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "globalDependencies":{
+    "postcss-simple-vars": "~2.0.0",
+    "postcss-nested": "~1.0.0",
+    "autoprefixer": "~5.2.0",
+    "http-server": "~0.9.0",
+    "postcss-cli": "~2.5.2"
+  }
 }
