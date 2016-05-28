@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "description": "Font end for BAGD website.",
   "scripts": {
-    "postinstall": "./globalDependencies.sh",
-    "build": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d && postcss --use postcss-import --use postcss-simple-vars --use postcss-nested --use autoprefixer ./stylesheets/custom.css > ./stylesheets/style.css",
+    "build:js": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d",
+    "build:css": "postcss --config postcss-config.json",
+    "build": "npm run build:js && npm run build:css",
     "precompile": "npm run build",
-    "compile": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js && cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
+    "compile:js": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js",
+    "compile:css": "cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
+    "compile": "npm run compile:js && npm run compile:css",
     "prewatch": "npm run compile",
-    "watch": "onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile"
+    "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile"
   },
   "author": "CSM BAGD",
   "license": "BSD-2-Clause",
@@ -18,7 +21,13 @@
     "clean-css": "~3.4.12",
     "onchange": "~2.4.0",
     "postcss": "^5.0.19",
-    "uglify-js": "~2.6.2"
+    "uglify-js": "~2.6.2",
+    "postcss-cli": "~2.5.2",
+    "postcss-simple-vars": "~2.0.0",
+    "postcss-nested": "~1.0.0",
+    "postcss-import": "8.1.2",
+    "autoprefixer": "~5.2.0",
+    "http-server": "~0.9.0"
   },
   "browserify": {
     "transform": [
@@ -30,13 +39,6 @@
     "underscore": "global:_",
     "backbone": "global:Backbone"
   },
-  "dependencies": {},
-  "globalDependencies":{
-    "postcss-simple-vars": "~2.0.0",
-    "postcss-nested": "~1.0.0",
-    "postcss-import": "8.1.2",
-    "autoprefixer": "~5.2.0",
-    "http-server": "~0.9.0",
-    "postcss-cli": "~2.5.2"
+  "dependencies": {
   }
 }
