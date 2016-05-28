@@ -84,6 +84,18 @@ a{
 			padding: 20px;
 	        height: 100vh;
 		}
+
+		// u{
+	 //    	display: inline-block;
+		//     text-decoration: none;
+		//     padding-bottom: -5px;
+		//     margin-bottom: 5px;
+		//     border-bottom: 0.06em solid #000;
+
+		//     &:hover{
+		//     	cursor: pointer;
+		//     }
+		// }
 	}
 
 	.holding-page{
