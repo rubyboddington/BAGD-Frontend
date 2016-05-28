@@ -109,6 +109,18 @@ a:hover{}
     }
 }
 
+#page-content header.holding-page u{
+    display: inline-block;
+    text-decoration: none;
+    padding-bottom: -5px;
+    margin-bottom: 5px;
+    border-bottom: 0.06em solid #000;
+}
+
+#page-content header.holding-page u:hover{
+    cursor: pointer;
+}
+
 /* .links{
 			position: absolute;
 		    right: 0;
@@ -146,6 +158,8 @@ a:hover{}
 #page-content .holding-page#questions u{
     display: inline-block;
     text-decoration: none;
+    padding-bottom: -5px;
+    margin-bottom: 5px;
     border-bottom: 0.06em solid #000;
 }
 
@@ -175,6 +189,7 @@ a:hover{}
             filter: grayscale(100%);
     width: 300px;
     margin-top: -1px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 479px){

@@ -12,7 +12,8 @@
     "compile:css": "cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
     "compile": "npm run compile:js && npm run compile:css",
     "prewatch": "npm run compile",
-    "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile"
+    "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile",
+    "deploy": "surge ."
   },
   "author": "CSM BAGD",
   "license": "BSD-2-Clause",
