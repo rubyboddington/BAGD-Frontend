@@ -118,25 +118,16 @@ a{
 		    hyphens: auto;
 
 		    u{
-		    	display: inline-table;
+		    	display: inline-block;
 			    text-decoration: none;
+			    border-bottom: 0.06em solid #000;
 
-			    &:after{
-			    	content: "";
-				    width: 100%;
-				    border-bottom: 0.06em solid #000;
-				    display: table-caption;
-				    vertical-align: baseline;
-				    position: relative;
-				    top: 1.17em;
-
-				    @media $(small){
-						display: none;
-					}
-					@media $(medium){
-						display: none;
-					}
-			    }
+			    @media $(small){
+					border-bottom: none;
+				}
+				@media $(medium){
+					border-bottom: none;
+				}
 
 			    img{
 			    	display: none;
@@ -149,6 +140,13 @@ a{
 				    filter: grayscale(100%);
 				    width: 300px;
 				    margin-top: -1px;
+
+				    @media $(small){
+						display: none;
+					}
+					@media $(medium){
+						display: none;
+					}
 			    }
 		    }
 
@@ -222,6 +220,10 @@ a{
 
 			    	span{
 			    		opacity: 0;
+
+			    		@media $(small){
+							opacity: 1;
+						}
 			    	}
 			    }
 		    }
