@@ -120,6 +120,8 @@ a{
 		    u{
 		    	display: inline-block;
 			    text-decoration: none;
+			    padding-bottom: -5px;
+			    margin-bottom: 5px;
 			    border-bottom: 0.06em solid #000;
 
 			    @media $(small){
@@ -140,6 +142,7 @@ a{
 				    filter: grayscale(100%);
 				    width: 300px;
 				    margin-top: -1px;
+				    cursor: pointer;
 
 				    @media $(small){
 						display: none;
