@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Font end for BAGD website.",
   "scripts": {
+    "favicon": "node favicon.js && echo 'Now copy contents of favicon.html into your HTML files.'",
     "build:js": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d",
     "build:css": "postcss --config postcss-config.json",
     "build": "npm run build:js && npm run build:css",
@@ -16,18 +17,19 @@
   "author": "CSM BAGD",
   "license": "BSD-2-Clause",
   "devDependencies": {
+    "autoprefixer": "~5.2.0",
     "browserify": "~13.0.1",
     "browserify-shim": "~3.8.9",
     "clean-css": "~3.4.12",
+    "favicons": "^4.7.1",
+    "http-server": "~0.9.0",
     "onchange": "~2.4.0",
     "postcss": "^5.0.19",
-    "uglify-js": "~2.6.2",
     "postcss-cli": "~2.5.2",
-    "postcss-simple-vars": "~2.0.0",
-    "postcss-nested": "~1.0.0",
     "postcss-import": "8.1.2",
-    "autoprefixer": "~5.2.0",
-    "http-server": "~0.9.0"
+    "postcss-nested": "~1.0.0",
+    "postcss-simple-vars": "~2.0.0",
+    "uglify-js": "~2.6.2"
   },
   "browserify": {
     "transform": [
@@ -39,6 +41,5 @@
     "underscore": "global:_",
     "backbone": "global:Backbone"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
