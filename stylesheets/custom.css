@@ -82,20 +82,30 @@ a{
 		}
 		@media $(medium){
 			padding: 20px;
-	        height: 100vh;
+	        min-height: 100vh;
 		}
 
-		// u{
-	 //    	display: inline-block;
-		//     text-decoration: none;
-		//     padding-bottom: -5px;
-		//     margin-bottom: 5px;
-		//     border-bottom: 0.06em solid #000;
+		u{
+	    	display: inline-block;
+		    text-decoration: none;
+		    padding-bottom: -5px;
+		    margin-bottom: 5px;
+		    border-bottom: 0.06em solid #000;
 
-		//     &:hover{
-		//     	cursor: pointer;
-		//     }
-		// }
+		    &:hover{
+		    	cursor: pointer;
+		    }
+		}
+
+		#show-details{
+			max-height: 0px;
+			overflow: hidden;
+			transition: max-height 0.5s ease-out;
+
+			@media $(small){
+				max-height: 1500px;
+			}
+		}
 	}
 
 	.holding-page{

@@ -105,7 +105,7 @@ a:hover{}
 
     #page-content header.holding-page {
         padding: 20px;
-        height: 100vh;
+        min-height: 100vh;
     }
 }
 
@@ -119,6 +119,20 @@ a:hover{}
 
 #page-content header.holding-page u:hover{
     cursor: pointer;
+}
+
+#page-content header.holding-page #show-details{
+    max-height: 0px;
+    overflow: hidden;
+    -webkit-transition: max-height 0.5s ease-out;
+            transition: max-height 0.5s ease-out;
+}
+
+@media only screen and (max-width: 479px){
+
+    #page-content header.holding-page #show-details {
+        max-height: 1500px;
+    }
 }
 
 /* .links{
