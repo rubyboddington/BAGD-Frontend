@@ -140,7 +140,7 @@ a{
 		&#questions{
 			width: calc(100% - 350px);
 		    padding: 35px;
-		    line-height: 1.3em;
+		    line-height: 1.4em;
 		    hyphens: auto;
 
 		    u{
@@ -185,6 +185,7 @@ a{
 			    margin-right: 10px;
 			    padding-left: 0.38em;
 			    padding-right: 0.32em;
+			    line-height: 1.3em;
 			    border: 0.06em solid #000;
 			    font-weight: 100;
 
@@ -193,8 +194,8 @@ a{
 			        padding-right: 10px;
 				}
 				@media $(medium){
-			        padding-left: 29px;
-			        padding-right: 27px;
+			        padding-left: 16px;
+			        padding-right: 14px;
 				}
 		    }
 

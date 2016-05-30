@@ -166,7 +166,7 @@ a:hover{}
 #page-content .holding-page#questions{
     width: calc(100% - 350px);
     padding: 35px;
-    line-height: 1.3em;
+    line-height: 1.4em;
     -webkit-hyphens: auto;
        -moz-hyphens: auto;
         -ms-hyphens: auto;
@@ -230,6 +230,7 @@ a:hover{}
     margin-right: 10px;
     padding-left: 0.38em;
     padding-right: 0.32em;
+    line-height: 1.3em;
     border: 0.06em solid #000;
     font-weight: 100;
 }
@@ -245,8 +246,8 @@ a:hover{}
 @media only screen and (min-width: 480px) and (max-width: 749px){
 
     #page-content .holding-page#questions em {
-        padding-left: 29px;
-        padding-right: 27px;
+        padding-left: 16px;
+        padding-right: 14px;
     }
 }
 
