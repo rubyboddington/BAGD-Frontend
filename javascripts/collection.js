@@ -8,7 +8,9 @@ var model = require("./models.js");
 var collection = Backbone.Collection.extend({
 	model: model,
 	// url: "http://bagd-test.herokuapp.com/wp-json/wp/v2/student_info"
-	url: "http://localhost/wordpress/wp-json/wp/v2/student_info"
+	url: "http://localhost/wordpress/wp-json/wp/v2/student_info",
+
+	comparator: "name"
 });
 
 students_data = new collection();

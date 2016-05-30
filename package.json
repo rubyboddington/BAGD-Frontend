@@ -4,15 +4,15 @@
   "description": "Font end for BAGD website.",
   "scripts": {
     "favicon": "node favicon.js && echo 'Now copy contents of favicon.html into your HTML files.'",
-    "build:js": "browserify ./javascripts/custom.js -o ./javascripts/main.js -d",
+    "build:js": "browserify ./javascripts/custom.js -o ./javascripts/magic.js -d",
     "build:css": "postcss --config postcss-config.json",
     "build": "npm run build:js && npm run build:css",
     "precompile": "npm run build",
-    "compile:js": "uglifyjs -m --screw-ie8 ./javascripts/main.js > ./javascripts/main.min.js",
+    "compile:js": "uglifyjs -m --screw-ie8 ./javascripts/magic.js > ./javascripts/magic.min.js",
     "compile:css": "cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
     "compile": "npm run compile:js && npm run compile:css",
     "prewatch": "npm run compile",
-    "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|main|main.min|vendor/**).js' -v -- npm run compile",
+    "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|magic|magic.min|vendor/**).js' -v -- npm run compile",
     "deploy": "surge ."
   },
   "author": "CSM BAGD",
