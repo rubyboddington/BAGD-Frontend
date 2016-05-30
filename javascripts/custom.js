@@ -5,6 +5,7 @@ var Backbone = require('backbone');
 Backbone.$ = $;
 var students_data = require("./collection.js");
 var singleView = require("./singleView.js");
+var magic = magic || {};
 
 // Hold that ready, magic needs to happen first!
 $.holdReady(true);
@@ -27,22 +28,58 @@ students_data.fetch({
 // done before loading in the data.
 window.addEventListener("receivedData", function(){
 	// students_data is the collection object
-	// students_data.models is the array-like object of all the students data
 	console.log(students_data.models);
 	// Make them data pretty!
-	// students_data.each(function(el, i){
-	// 	console.log(el);
-	// });
+	students_data.each(function(el, i){
+		// Validate and fix website addresses
+		magic.validateWebAddress(el, [
+			"link_to_personal_website",
+			"youtube",
+			"vimeo",
+			"hero_video",
+			"video_1",
+			"video_2"
+		]);
+
+		// Convert student ID to upper case
+		el.set("student_number", el.get("student_number").toUpperCase());
+
+		// Trim tags to 7 items only
+		if (el.get("tags").length > 7){
+			el.get("tags").splice(7);
+		}
+	});
+
+
 
 	// students_display is the single view object meant to render info for one student
 	var students_display = new singleView({model: students_data.at(0)});
 	// $("#page-content #wrapper").html(students_display.render().$el);
 
+
+
 	// Now you can be ready, everything's loaded in and displayed!
 	$.holdReady(false);
 	$("#page-content").css('display', 'inline');
 	// After this point you should then bind events, animations, etc.
-	// (which will happen in script.js)
+	// (which will happen in script.js in document.ready)
 });
 
+
+magic.validateWebAddress = function(el, names){
+	var start = /^https?:\/\//g;
+
+	_.each(names, function(name, i) {
+		if (el.get(name) !== "" && typeof el.get(name) != "undefined"){
+			// Add http:// prefix if it doesn't already have it,
+			// required to make sure links are absolute
+			if (!start.test(el.get(name))){
+				var old = el.get(name);
+				el.set(name, "http://" + old);
+			}
+		}else{
+			// User did not provide link to website
+		}
+	});
+};
 
