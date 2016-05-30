@@ -3,6 +3,10 @@
     src: url(./fonts/gt-cinetype-light.otf);
 }
 
+*{
+	box-sizing: border-box;
+}
+
 html, body{
     font-family: 'GT Cinetype', sans-serif;
     font-weight: 100;
@@ -112,9 +116,9 @@ a:hover{}
 #page-content header.holding-page u{
     display: inline-block;
     text-decoration: none;
-    padding-bottom: -5px;
-    margin-bottom: 5px;
     border-bottom: 0.06em solid #000;
+    line-height: 0.9em;
+    margin-bottom: .1em;
 }
 
 #page-content header.holding-page u:hover{
@@ -172,9 +176,8 @@ a:hover{}
 #page-content .holding-page#questions u{
     display: inline-block;
     text-decoration: none;
-    padding-bottom: -5px;
-    margin-bottom: 5px;
     border-bottom: 0.06em solid #000;
+    line-height: 0.9em;
 }
 
 @media only screen and (max-width: 479px){
