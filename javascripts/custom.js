@@ -45,8 +45,10 @@ window.addEventListener("receivedData", function(){
 		el.set("student_number", el.get("student_number").toUpperCase());
 
 		// Trim tags to 7 items only
-		if (el.get("tags").length > 7){
-			el.get("tags").splice(7);
+		if (el.get("tags") !== null){
+			if (el.get("tags").length > 7){
+				el.get("tags").splice(7);
+			}
 		}
 	});
 
