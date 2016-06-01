@@ -4,6 +4,7 @@
 }
 
 $bgcolour: #fff;
+$yellow: #ffff00;
 $default-font: 'GT Cinetype', sans-serif;
 $small: only screen and (max-width: 479px);
 $medium: only screen and (min-width: 480px) and (max-width: 749px);
@@ -42,6 +43,26 @@ a{
 	}
 }
 
+#loading{
+	position: fixed;
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: $yellow;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+
+	img{
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		top: 50%;
+		left: 50%;
+		margin:-100px 0 0 -100px;
+	}
+}
+
 #page-content{
 	#wrapper{
 		margin: 0 auto;
@@ -73,7 +94,7 @@ a{
 	}
 
 	header.holding-page{
-	    background: #ffff00;
+	    background: $yellow;
 	    padding-bottom: 38px;
 	    padding: 35px;
 

@@ -9,6 +9,7 @@ var magic = magic || {};
 
 // Hold that ready, magic needs to happen first!
 $.holdReady(true);
+// This should be the loading screen
 $("#page-content").css('display', 'none');
 
 // Anything that needs doing before data is loaded should go here.
@@ -62,7 +63,11 @@ window.addEventListener("receivedData", function(){
 
 	// Now you can be ready, everything's loaded in and displayed!
 	$.holdReady(false);
-	$("#page-content").css('display', 'inline');
+	$("#page-content").css("display", "inline");
+	$("#loading").css("opacity", "0");
+	setTimeout(function(){
+		$("#loading").css("display", "none");
+	}, 500);
 	// After this point you should then bind events, animations, etc.
 	// (which will happen in script.js in document.ready)
 });
