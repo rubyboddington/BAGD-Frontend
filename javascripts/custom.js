@@ -1,7 +1,8 @@
 // Bunch of imports
-var $ = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
+var $ = require("jquery");
+var _ = require("underscore");
+var Backbone = require("backbone");
+var smark = require("smark");
 Backbone.$ = $;
 var students_data = require("./collection.js");
 var singleView = require("./singleView.js");
@@ -9,7 +10,6 @@ var magic = magic || {};
 
 // Hold that ready, magic needs to happen first!
 $.holdReady(true);
-// This should be the loading screen
 $("#page-content").css('display', 'none');
 
 // Anything that needs doing before data is loaded should go here.
@@ -51,8 +51,23 @@ window.addEventListener("receivedData", function(){
 				el.get("tags").splice(7);
 			}
 		}
-	});
 
+		magic.typography(el, ["bio", "hero_caption", "caption_1", "caption_2"]);
+
+		var availableVideos = [];
+		if (el.get("hero_image_video") == "Video"){
+			availableVideos.push("hero_video");
+		}
+		if (el.get("image_video_1") == "Video"){
+			availableVideos.push("video_1");
+		}
+		if (el.get("image_video_2") == "Video"){
+			availableVideos.push("video_2");
+		}
+		if(!(_.isEmpty(availableVideos))){
+			magic.getVideoImage(el, availableVideos);
+		}
+	});
 
 
 	// students_display is the single view object meant to render info for one student
@@ -73,14 +88,15 @@ window.addEventListener("receivedData", function(){
 });
 
 
+// Some magic functions
 magic.validateWebAddress = function(el, names){
-	var start = /^https?:\/\//g;
+	var start = /^https?:\/\//gi;
 
 	_.each(names, function(name, i) {
 		if (el.get(name) !== "" && typeof el.get(name) != "undefined"){
 			// Add http:// prefix if it doesn't already have it,
 			// required to make sure links are absolute
-			if (!start.test(el.get(name))){
+			if (el.get(name).search(start) == -1){
 				var old = el.get(name);
 				el.set(name, "http://" + old);
 			}
@@ -88,5 +104,47 @@ magic.validateWebAddress = function(el, names){
 			// User did not provide link to website
 		}
 	});
+};
+
+magic.typography = function(el, fields){
+	_.each(fields, function(field, i){
+		if (el.get(field)){
+			el.set(field, smark.typographicChanges(el.get(field)).trim());
+		}
+	});
+};
+
+magic.getVideoImage = function(el, fields){
+	_.each(fields, function(field, i){
+		if(el.get(field) !== ""){
+			if(smark.typeIs(el.get(field)) == "youtube"){
+				var vidID = el.get(field).replace(smark.youtubeRE, "$1");
+				var imageLink = "http://i3.ytimg.com/vi/" + vidID + "/sddefault.jpg";
+				el.set(field + "_image", imageLink);
+
+			}else if(smark.typeIs(el.get(field)) == "vimeo"){
+				var vidID = el.get(field).replace(smark.vimeoRE, "$1");
+				var imageLink = magic.vimeoLoadingThumb(vidID);
+				el.set(field + "_image", imageLink);
+			}else{
+				console.log(el.get("name"), el.get(field));
+			}
+		}
+	});
+};
+
+magic.vimeoLoadingThumb = function(id){
+    var url = "https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/" + id;
+    var ret;
+    $.ajax({
+    	url: url,
+    	dataType: "json",
+    	async: false
+    }).done(function(data){
+    	var returnImage = data.thumbnail_url;
+    	returnImage = returnImage.replace(/(.*?_)\d+?(\.jpg)/, "$1640$2");
+    	ret = returnImage;
+    });
+    return ret;
 };
 

@@ -4,12 +4,10 @@
 }
 
 html, body{
-    font-family: 'GT Cinetype', sans-serif;
-    font-weight: 100;
+	font: normal 100 3.1vw 'GT Cinetype', sans-serif;
     letter-spacing: 0.03em;
     cursor: help;
 	background-color: #fff;
-	font-size: 3.1vw;
 }
 
 @media only screen and (max-width: 479px){
@@ -44,6 +42,10 @@ a:visited{
 }
 
 a:hover{}
+
+.pseudo-section{
+	display:none;
+}
 
 #loading{
 	position: fixed;

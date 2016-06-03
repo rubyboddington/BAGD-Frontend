@@ -6,17 +6,18 @@
 $bgcolour: #fff;
 $yellow: #ffff00;
 $default-font: 'GT Cinetype', sans-serif;
+$default-font-size: 3.1vw;
+$default-font-weight: 100;
+$default-font-style: normal;
 $small: only screen and (max-width: 479px);
 $medium: only screen and (min-width: 480px) and (max-width: 749px);
 $large: only screen and (min-width: 750px) and (max-width: 1000px);
 
 html, body{
-    font-family: $default-font;
-    font-weight: 100;
+	font: $default-font-style $default-font-weight $default-font-size $default-font;
     letter-spacing: 0.03em;
     cursor: help;
 	background-color: $bgcolour;
-	font-size: 3.1vw;
 
 	@media $(small){
 		font-size: 25px;
@@ -41,6 +42,10 @@ a{
 	&:hover{
 
 	}
+}
+
+.pseudo-section{
+	display:none;
 }
 
 #loading{
