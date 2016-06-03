@@ -13,6 +13,7 @@
     "compile": "npm run compile:js && npm run compile:css",
     "prewatch": "npm run compile",
     "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(edit|magic|magic.min|vendor/**).js' -v -- npm run compile",
+    "predeploy": "npm run compile",
     "deploy": "surge ."
   },
   "author": "CSM BAGD",
