@@ -13,6 +13,10 @@ $small: only screen and (max-width: 479px);
 $medium: only screen and (min-width: 480px) and (max-width: 749px);
 $large: only screen and (min-width: 750px) and (max-width: 1000px);
 
+*{
+	box-sizing: border-box;
+}
+
 html, body{
 	font: $default-font-style $default-font-weight $default-font-size $default-font;
     letter-spacing: 0.03em;
@@ -114,9 +118,9 @@ a{
 		u{
 	    	display: inline-block;
 		    text-decoration: none;
-		    padding-bottom: -5px;
-		    margin-bottom: 5px;
 		    border-bottom: 0.06em solid #000;
+		    line-height: 0.9em;
+		    margin-bottom: .1em;
 
 		    &:hover{
 		    	cursor: pointer;
@@ -162,15 +166,14 @@ a{
 		&#questions{
 			width: calc(100% - 350px);
 		    padding: 35px;
-		    line-height: 1.3em;
+		    line-height: 1.4em;
 		    hyphens: auto;
 
 		    u{
 		    	display: inline-block;
 			    text-decoration: none;
-			    padding-bottom: -5px;
-			    margin-bottom: 5px;
 			    border-bottom: 0.06em solid #000;
+			    line-height: 0.9em;
 
 			    @media $(small){
 					border-bottom: none;
@@ -208,6 +211,7 @@ a{
 			    margin-right: 10px;
 			    padding-left: 0.38em;
 			    padding-right: 0.32em;
+			    line-height: 1.3em;
 			    border: 0.06em solid #000;
 			    font-weight: 100;
 
@@ -216,8 +220,8 @@ a{
 			        padding-right: 10px;
 				}
 				@media $(medium){
-			        padding-left: 29px;
-			        padding-right: 27px;
+			        padding-left: 16px;
+			        padding-right: 14px;
 				}
 		    }
 

@@ -117,15 +117,17 @@ magic.typography = function(el, fields){
 magic.getVideoImage = function(el, fields){
 	_.each(fields, function(field, i){
 		if(el.get(field) !== ""){
+			var vidID;
 			if(smark.typeIs(el.get(field)) == "youtube"){
-				var vidID = el.get(field).replace(smark.youtubeRE, "$1");
+				vidID = el.get(field).replace(smark.youtubeRE, "$1");
 				var imageLink = "http://i3.ytimg.com/vi/" + vidID + "/sddefault.jpg";
 				el.set(field + "_image", imageLink);
 
 			}else if(smark.typeIs(el.get(field)) == "vimeo"){
-				var vidID = el.get(field).replace(smark.vimeoRE, "$1");
-				var imageLink = magic.vimeoLoadingThumb(vidID);
-				el.set(field + "_image", imageLink);
+				vidID = el.get(field).replace(smark.vimeoRE, "$1");
+				magic.vimeoLoadingThumb(vidID, function(imageLink){
+					el.set(field + "_image", imageLink);
+				});
 			}else{
 				console.log(el.get("name"), el.get(field));
 			}
@@ -133,18 +135,15 @@ magic.getVideoImage = function(el, fields){
 	});
 };
 
-magic.vimeoLoadingThumb = function(id){
+magic.vimeoLoadingThumb = function(id, callback){
     var url = "https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/" + id;
-    var ret;
     $.ajax({
     	url: url,
-    	dataType: "json",
-    	async: false
+    	dataType: "json"
     }).done(function(data){
     	var returnImage = data.thumbnail_url;
     	returnImage = returnImage.replace(/(.*?_)\d+?(\.jpg)/, "$1640$2");
-    	ret = returnImage;
+    	callback(returnImage);
     });
-    return ret;
 };
 

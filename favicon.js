@@ -9,7 +9,7 @@ var favicons = require('favicons'),
         developerURL: "http://designerken.be",// Your (or your developer's) URL. `string`
         background: "#ff0",             // Background colour for flattened icons. `string`
         path: "./favicon",              // Path for overriding default icons path. `string`
-        url: "/",                       // Absolute URL for OpenGraph image. `string`
+        url: "/",                 // Absolute URL for OpenGraph image. `string`
         display: "standalone",          // Android display: "browser" or "standalone". `string`
         orientation: "portrait",        // Android orientation: "portrait" or "landscape". `string`
         version: pjson.version,         // Your application's version number. `number`
