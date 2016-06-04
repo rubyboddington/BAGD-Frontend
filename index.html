@@ -225,25 +225,64 @@
 			</section>
 
 
-			<section class="hidden" id="wrapper">
-				<h1 class="studentName">
+			<section class="hidden" id="singleStudent">
+				<h2 class="studentName">
 					(: name :)
-				</h1>
+				</h2>
 				<div class="details">
-					<div class="left">
-						<p>Route:</p>
-						<p>Website:</p>
-						<p>Email:</p>
-						<p>Twitter:</p>
-						<p>Linkedin:</p>
-					</div>
-					<div class="right">
-						<p>(: route :)</p>
-						<p>(: website :)</p>
-						<p>(: email :)</p>
-						<p>(: twitter :)</p>
-						<p>(: linkedin :)</p>
-					</div>
+				): if (typeof(website) !== "undefined") { :(
+					<p><a href="(: website :)" target=_blank>(: website :)</a></p>
+				): } :(
+
+				): if (typeof(email) !== "undefined") { :(
+					<p>(: email :)</p>
+				): } :(
+
+				): if (typeof(twitter) !== "undefined") { :(
+					<p>(: twitter :)</p>
+				): } :(
+
+				): if (typeof(instagram) !== "undefined") { :(
+					<p>(: instagram :)</p>
+				): } :(
+
+				): if (typeof(youtube) !== "undefined") { :(
+					<p><a href="(: youtube :)" target=_blank>(: youtube :)</a></p>
+				): } :(
+
+				): if (typeof(vimeo) !== "undefined") { :(
+					<p><a href="(: vimeo :)" target=_blank>(: vimeo :)</a></p>
+				): } :(
+
+				): if (typeof(bio) !== "undefined") { :(
+					<article>(: bio :)</article>
+				): } :(
+
+				</div>
+
+				<div class="images">
+					<br>
+					): if (hero_image_video == "Image") { :(
+						): print(smark.generate(hero_image).html); :(
+					): }else if (hero_image_video == "Video"){ :(
+						): print(smark.generate(hero_video).html); :(
+					): } :(
+					<br>
+					): if (typeof(image_video_1) != "undefined"){ :(
+						): if (image_video_1 == "Image") { :(
+							): print(smark.generate(image_1).html); :(
+						): }else if (image_video_1 == "Video"){ :(
+							): print(smark.generate(video_1).html); :(
+						): } :(
+					): } :(
+					<br>
+					): if (typeof(image_video_2) != "undefined"){ :(
+						): if (image_video_2 == "Image") { :(
+							): print(smark.generate(image_2).html); :(
+						): }else if (image_video_2 == "Video"){ :(
+							): print(smark.generate(video_2).html); :(
+						): } :(
+					): } :(
 				</div>
 			</section>
 		</div>

@@ -26,6 +26,23 @@ $(document).ready(function() {
 		$("#sponsors img").css('margin-top', margin);
 	});
 
+	setTimeout(function(){
+		if($("#main").width() < 780 + $("#main header nav").width()){
+			$("#main header").css('background-color', 'white');
+		}else{
+			$("#main header").css('background-color', 'none');
+		}
+	}, 1);
+	$(window).resize(function(){
+		if($("#main").width() < 780 + $("#main header nav").width()){
+			$("#main header").css('background-color', 'white');
+		}else{
+			$("#main header").css('background-color', 'none');
+		}
+	});
+
+	// Render each students data
+	$("#page-content #main .content").html(students_display.render().$el);
 });
 
 function holdingPageDetails(){

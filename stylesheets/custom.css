@@ -107,12 +107,18 @@ h6{
 	.nav{
 		.nav-content{
 			padding-top: 130px;
+			padding-bottom: 30px;
 			min-height: 100vh;
 
 			ul{
-				margin: 0 0;
-				padding: 0 30px 2.5ch 30px;
+				margin: 0;
+				padding: 0 30px 1.5ch 30px;
 				list-style: none;
+
+				h6{
+					padding: 0;
+					margin: 0;
+				}
 			}
 		}
 
@@ -126,6 +132,10 @@ h6{
 
 				ul li{
 					a:hover, a.active{
+						padding-right: 2px;
+						padding-bottom: 2px;
+						padding-left: 2px;
+						margin-left: -2px;
 						background-color: $black;
 						color: $yellow;
 					}
@@ -176,7 +186,14 @@ h6{
 					background-color: $yellow;
 					color: $black;
 					border: none;
-					margin: 0 10px;
+					margin: 0;
+
+					&:first-child{
+						margin-right: 10px;
+					}
+					&:last-child{
+						margin-left: 10px;
+					}
 				}
 			}
 
@@ -197,10 +214,15 @@ h6{
 	}
 
 	#main{
-		header nav{
-			position: absolute;
-			right: 0;
-			padding: 35px 30px 0px 50px;
+		header{
+			height: 85px;
+			/* background-color: $white; */
+
+			nav{
+				position: absolute;
+				right: 0;
+				padding: 35px 30px 0px 50px;
+			}
 
 			a{
 				padding-left: 15px;
@@ -211,6 +233,26 @@ h6{
 
 		.content{
 			padding: 130px 40px 0px 40px;
+		}
+
+		#studentWrapper{
+			a{
+				color: $black;
+
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+
+			article{
+				max-width: 700px;
+			}
+
+			img, iframe{
+				width: 100%;
+				max-width: 700px;
+				height: auto;
+			}
 		}
 
 		#questions{
@@ -257,39 +299,7 @@ h6{
 
 
 
-
-
-
-
-	#wrapper{
-		margin: 0 auto;
-		width: 80%;
-		max-width: 992px;
-
-		@media $(small){
-			width: 100%;
-		}
-		@media $(medium){
-			width: 100%;
-		}
-		@media $(large){
-			width: 90%;
-		}
-	}
-
-	.details{
-		display:flex;
-
-		.left{
-			text-align: right;
-			padding: 0 0.5em;
-		}
-		.right{
-			text-align: left;
-			padding: 0 0.5em;
-		}
-	}
-
+	/* Will probably show holding page for mobile so please keep */
 	header.holding-page{
 		background: $yellow;
 		padding-bottom: 38px;

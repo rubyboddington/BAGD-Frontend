@@ -2,7 +2,7 @@
 var $ = require("jquery");
 var _ = require("underscore");
 var Backbone = require("backbone");
-var smark = require("smark");
+window.smark = require("smark");
 Backbone.$ = $;
 var students_data = require("./collection.js");
 var singleView = require("./singleView.js");
@@ -69,10 +69,11 @@ window.addEventListener("receivedData", function(){
 			magic.getVideoImage(el, availableVideos);
 		}
 	});
+	console.log(students_data.at(0).toJSON());
 
 
 	// students_display is the single view object meant to render info for one student
-	var students_display = new singleView({model: students_data.at(0)});
+	window.students_display = new singleView({model: students_data.at(90)});
 	// $("#page-content #wrapper").html(students_display.render().$el);
 
 	var questions_display = $("#questions").html();
@@ -80,7 +81,6 @@ window.addEventListener("receivedData", function(){
 
 	var students_list = new collectionView({collection: students_data});
 	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
-
 
 
 	// Now you can be ready, everything's loaded in and displayed!
