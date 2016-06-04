@@ -122,6 +122,13 @@ h6{
 		&#tags-nav{
 			.nav-content{
 				background: $yellow;
+
+				ul li{
+					a:hover, a.active{
+						background-color: $black;
+						color: $yellow;
+					}
+				}
 			}
 
 			#search-box{
@@ -148,6 +155,12 @@ h6{
 			.nav-content{
 				background: $black;
 				color: $white;
+
+				ul li{
+					a:hover, a.active{
+						color: $yellow;
+					}
+				}
 			}
 
 			#showcase-map{

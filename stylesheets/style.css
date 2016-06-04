@@ -135,6 +135,11 @@ h6{
 	background: #ffff00;
 }
 
+#page-content .nav#tags-nav .nav-content ul li a:hover, #page-content .nav#tags-nav .nav-content ul li a.active{
+	background-color: #000;
+	color: #ffff00;
+}
+
 #page-content .nav#tags-nav #search-box{
 	height: 40px;
 	width: 100%;
@@ -157,6 +162,10 @@ h6{
 #page-content .nav#names-nav .nav-content{
 	background: #000;
 	color: #fff;
+}
+
+#page-content .nav#names-nav .nav-content ul li a:hover, #page-content .nav#names-nav .nav-content ul li a.active{
+	color: #ffff00;
 }
 
 #page-content .nav#names-nav #showcase-map{
