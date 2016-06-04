@@ -1,8 +1,8 @@
 @import "grid.css";
 
 @font-face {
-    font-family: GT Cinetype;
-    src: url(./fonts/gt-cinetype-light.otf);
+	font-family: GT Cinetype;
+	src: url(./fonts/gt-cinetype-light.otf);
 }
 
 $bgcolour: #fff;
@@ -23,9 +23,9 @@ $large: only screen and (min-width: 750px) and (max-width: 1000px);
 
 html, body{
 	font: $default-font-style $default-font-weight $default-font-size $default-font;
-    letter-spacing: 0.02em;
-    line-height: 23px;
-    cursor: help;
+	letter-spacing: 0.02em;
+	line-height: 23px;
+	cursor: help;
 	background-color: $bgcolour;
 	height: 100vh;
 
@@ -57,6 +57,13 @@ a{
 h1{
 	font-size: 140px;
 	line-height: 170px;
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	font-size: 3.1vw;
+	line-height: 1.2em;
 	margin: 0;
 	padding: 0;
 }
@@ -177,6 +184,20 @@ h6{
 
 	#main{
 		padding: 130px 40px 0px 40px;
+
+		#questions{
+			hyphens: auto;
+
+			u{
+				text-decoration: none;
+
+				&:hover{
+					box-shadow: inset 0px -13px 0px -7px rgba(0,0,0,1);
+					/* text-decoration: underline; */
+					/* text-decoration-line: underline; */
+				}
+			}
+		}
 	}
 
 
@@ -218,28 +239,28 @@ h6{
 	}
 
 	header.holding-page{
-	    background: $yellow;
-	    padding-bottom: 38px;
-	    padding: 35px;
+		background: $yellow;
+		padding-bottom: 38px;
+		padding: 35px;
 
-	    @media $(small){
+		@media $(small){
 			padding: 15px;
 		}
 		@media $(medium){
 			padding: 20px;
-	        min-height: 100vh;
+			min-height: 100vh;
 		}
 
 		u{
-	    	display: inline-block;
-		    text-decoration: none;
-		    border-bottom: 0.06em solid #000;
-		    line-height: 0.9em;
-		    margin-bottom: .1em;
+			display: inline-block;
+			text-decoration: none;
+			border-bottom: 0.06em solid #000;
+			line-height: 0.9em;
+			margin-bottom: .1em;
 
-		    &:hover{
-		    	cursor: pointer;
-		    }
+			&:hover{
+				cursor: pointer;
+			}
 		}
 
 		#show-details{
@@ -256,73 +277,73 @@ h6{
 	.holding-page{
 		&#questions{
 			width: calc(100% - 350px);
-		    padding: 35px;
-		    line-height: 1.4em;
-		    hyphens: auto;
+			padding: 35px;
+			line-height: 1.4em;
+			hyphens: auto;
 
-		    u{
-		    	display: inline-block;
-			    text-decoration: none;
-			    border-bottom: 0.06em solid #000;
-			    line-height: 0.9em;
+			u{
+				display: inline-block;
+				text-decoration: none;
+				border-bottom: 0.06em solid #000;
+				line-height: 0.9em;
 
-			    @media $(small){
+				@media $(small){
 					border-bottom: none;
 				}
 				@media $(medium){
 					border-bottom: none;
 				}
 
-			    img{
-			    	display: none;
-			    }
+				img{
+					display: none;
+				}
 
-			    &:hover img{
-			    	display: inline-block;
-				    position: absolute;
-				    z-index: 9999;
-				    filter: grayscale(100%);
-				    width: 300px;
-				    margin-top: -1px;
-				    cursor: pointer;
+				&:hover img{
+					display: inline-block;
+					position: absolute;
+					z-index: 9999;
+					filter: grayscale(100%);
+					width: 300px;
+					margin-top: -1px;
+					cursor: pointer;
 
-				    @media $(small){
+					@media $(small){
 						display: none;
 					}
 					@media $(medium){
 						display: none;
 					}
-			    }
-		    }
+				}
+			}
 
-		    em{
-		    	font-style: normal;
-			    background: #fff;
-			    color: #000;
-			    margin-right: 10px;
-			    padding-left: 0.38em;
-			    padding-right: 0.32em;
-			    line-height: 1.3em;
-			    border: 0.06em solid #000;
-			    font-weight: 100;
+			em{
+				font-style: normal;
+				background: #fff;
+				color: #000;
+				margin-right: 10px;
+				padding-left: 0.38em;
+				padding-right: 0.32em;
+				line-height: 1.3em;
+				border: 0.06em solid #000;
+				font-weight: 100;
 
-			    @media $(small){
-			        padding-left: 9px;
-			        padding-right: 10px;
+				@media $(small){
+					padding-left: 9px;
+					padding-right: 10px;
 				}
 				@media $(medium){
-			        padding-left: 16px;
-			        padding-right: 14px;
+					padding-left: 16px;
+					padding-right: 14px;
 				}
-		    }
+			}
 
-		    @media $(small){
+			@media $(small){
 				width: calc(100% - 50px);
-		        padding: 15px;
+				padding: 15px;
 			}
 			@media $(medium){
 				width: calc(100% - 70px);
-		        padding: 25px;
+				padding: 25px;
 			}
 			@media $(large){
 				width: calc(100% - 100px);
@@ -331,48 +352,48 @@ h6{
 
 		&#sponsors{
 			padding-top: 60px;
-		    padding-left: 35px;
-		    padding-bottom: 35px;
-		    width: calc(100% - 200px);
+			padding-left: 35px;
+			padding-bottom: 35px;
+			width: calc(100% - 200px);
 
-		    @media $(small){
-		    	padding-top: 20px;
-			    padding-left: 15px;
-		     	width: calc(100% - 50px);
+			@media $(small){
+				padding-top: 20px;
+				padding-left: 15px;
+				width: calc(100% - 50px);
 			}
 			@media $(medium){
 				width: calc(100% - 100px);
 			}
 
-		    .sponsor{
-		    	color: inherit;
-			    text-decoration: none;
+			.sponsor{
+				color: inherit;
+				text-decoration: none;
 
-			    img{
-			    	display: none;
-			    }
+				img{
+					display: none;
+				}
 
-			    &:hover{
-			    	img{
-			    		display: inline-block;
-					    margin: auto;
-					    position: absolute;
-					    margin-top: -10px;
+				&:hover{
+					img{
+						display: inline-block;
+						margin: auto;
+						position: absolute;
+						margin-top: -10px;
 
-					    @media $(small){
+						@media $(small){
 							display: none;
 						}
-			    	}
+					}
 
-			    	span{
-			    		opacity: 0;
+					span{
+						opacity: 0;
 
-			    		@media $(small){
+						@media $(small){
 							opacity: 1;
 						}
-			    	}
-			    }
-		    }
+					}
+				}
+			}
 		}
 	}
 }

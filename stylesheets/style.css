@@ -15,8 +15,8 @@
 }
 
 @font-face {
-    font-family: GT Cinetype;
-    src: url(./fonts/gt-cinetype-light.otf);
+	font-family: GT Cinetype;
+	src: url(./fonts/gt-cinetype-light.otf);
 }
 
 *{
@@ -25,9 +25,9 @@
 
 html, body{
 	font: normal 100 18px 'GT Cinetype', sans-serif;
-    letter-spacing: 0.02em;
-    line-height: 23px;
-    cursor: help;
+	letter-spacing: 0.02em;
+	line-height: 23px;
+	cursor: help;
 	background-color: #fff;
 	height: 100vh;
 }
@@ -70,6 +70,13 @@ a:hover{
 h1{
 	font-size: 140px;
 	line-height: 170px;
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	font-size: 3.1vw;
+	line-height: 1.2em;
 	margin: 0;
 	padding: 0;
 }
@@ -188,6 +195,23 @@ h6{
 
 #page-content #main{
 	padding: 130px 40px 0px 40px;
+}
+
+#page-content #main #questions{
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	        hyphens: auto;
+}
+
+#page-content #main #questions u{
+	text-decoration: none;
+}
+
+#page-content #main #questions u:hover{
+	box-shadow: inset 0px -13px 0px -7px rgba(0,0,0,1);
+	/* text-decoration: underline; */
+	/* text-decoration-line: underline; */
 }
 
 #page-content #wrapper{

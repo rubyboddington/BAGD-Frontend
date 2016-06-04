@@ -75,6 +75,9 @@ window.addEventListener("receivedData", function(){
 	var students_display = new singleView({model: students_data.at(0)});
 	// $("#page-content #wrapper").html(students_display.render().$el);
 
+	var questions_display = $("#questions").html();
+	$("#page-content #main").html(questions_display);
+
 	var students_list = new collectionView({collection: students_data});
 	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
 
