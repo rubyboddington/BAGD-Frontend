@@ -1,3 +1,5 @@
+@import "grid.css";
+
 @font-face {
     font-family: GT Cinetype;
     src: url(./fonts/gt-cinetype-light.otf);
@@ -5,8 +7,10 @@
 
 $bgcolour: #fff;
 $yellow: #ffff00;
+$black: #000;
+$white: #fff;
 $default-font: 'GT Cinetype', sans-serif;
-$default-font-size: 3.1vw;
+$default-font-size: 18px;
 $default-font-weight: 100;
 $default-font-style: normal;
 $small: only screen and (max-width: 479px);
@@ -19,9 +23,11 @@ $large: only screen and (min-width: 750px) and (max-width: 1000px);
 
 html, body{
 	font: $default-font-style $default-font-weight $default-font-size $default-font;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
+    line-height: 23px;
     cursor: help;
 	background-color: $bgcolour;
+	height: 100vh;
 
 	@media $(small){
 		font-size: 25px;
@@ -48,8 +54,18 @@ a{
 	}
 }
 
-.pseudo-section{
-	display:none;
+h1{
+	font-size: 140px;
+	line-height: 170px;
+	margin: 0;
+	padding: 0;
+}
+
+h6{
+	font-size: $default-font-size;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
 }
 
 #loading{
@@ -73,6 +89,91 @@ a{
 }
 
 #page-content{
+	section:not(.hidden){
+		overflow-y: auto;
+		max-height: 100%;
+		float: left;
+		display: block;
+	}
+
+	.nav{
+		.nav-content{
+			padding-top: 130px;
+			min-height: 100vh;
+
+			ul{
+				margin: 0 0;
+				padding: 0 30px 2.5ch 30px;
+				list-style: none;
+			}
+		}
+
+		header{
+			width: 20vw;
+		}
+
+		&#tags-nav{
+			.nav-content{
+				background: $yellow;
+			}
+
+			#search-box{
+				height: 40px;
+				width: 100%;
+				padding: 35px 30px 55px 30px;
+
+				#search{
+					height: 40px;
+					width: 100%;
+					border: 1px solid black;
+					background: rgba(255, 255, 0, 0);
+					padding-left: 10px;
+					padding-right: 10px;
+
+					&:focus{
+						outline: none;
+					}
+				}
+			}
+		}
+
+		&#names-nav{
+			.nav-content{
+				background: $black;
+				color: $white;
+			}
+
+			#showcase-map{
+				height: 40px;
+				padding: 35px 30px 55px 30px;
+				display:flex;
+				width: 100%;
+
+				.btn{
+					flex-grow: 1;
+					height: 40px;
+					background-color: $white;
+					color: $black;
+					border: none;
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+
+	#main{
+		padding: 130px 40px 0px 40px;
+	}
+
+
+
+
+
+
+
+
+
+
 	#wrapper{
 		margin: 0 auto;
 		width: 80%;
@@ -139,30 +240,6 @@ a{
 	}
 
 	.holding-page{
-		/* .links{
-			position: absolute;
-		    right: 0;
-		    top: 325px;
-		    margin-right: -150px;
-		    margin-top: -122px;
-		    width: 370px;
-		    font-size: 17px;
-		    text-decoration: inherit;
-		    transform: rotate(90deg);
-
-		    a{
-		    	text-decoration: inherit;
-			    color: inherit;
-			    margin-right: 40px;
-			    border-bottom: 1px solid;
-			    letter-spacing: 0.01em;
-
-			    &:hover{
-			    	border-bottom: none;
-			    }
-		    }
-		} */
-
 		&#questions{
 			width: calc(100% - 350px);
 		    padding: 35px;
