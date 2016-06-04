@@ -91,7 +91,7 @@ h6{
 #page-content{
 	section:not(.hidden){
 		overflow-y: auto;
-		max-height: 100%;
+		height: 100%;
 		float: left;
 		display: block;
 	}

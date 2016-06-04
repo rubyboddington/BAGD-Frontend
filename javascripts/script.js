@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	holdingPageDetails();
 	$(window).resize(holdingPageDetails);
+
+
+
 });
 
 function holdingPageDetails(){

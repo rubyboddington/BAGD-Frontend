@@ -8,10 +8,9 @@ Backbone.$ = $;
 
 // Create one element at a time
 var individual = Backbone.View.extend({
-	tagName: "article",
-	className: "navBtn",
+	tagName: "li",
 
-	template: _.template($("#individualView").html()),
+	template: _.template($("#name-list-item").html()),
 
 	render: function(){
 		var modelTemplate = this.template(this.model.toJSON());
@@ -22,16 +21,35 @@ var individual = Backbone.View.extend({
 
 // Placing the elements created above into the collection view renderer.
 module.exports = Backbone.View.extend({
-	tagName: "section",
-	className: "all",
+	tagName: "div",
+	id: "name-list",
 
 	render: function(){
-		this.collection.each(this.addModel, this);
+		var wholeList = "";
+		var groupedList = this.collection.groupBy(function(el){
+			var firstChar = el.get("name").charAt(0);
+			return firstChar;
+		}, this);
+
+		_.each(groupedList, function(el, key){
+			var header = "<ul><li>" + key + "</li>";
+
+			wholeList += header;
+
+			_.each(el, function(el, i){
+				wholeList += this.addModel(el);
+			}, this);
+
+			wholeList += "</ul>";
+		}, this);
+
+		this.$el.html(wholeList);
+
 		return this;
 	},
 
 	addModel: function(model){
 		var modelView = new individual({model: model});
-		this.$el.append(modelView.render().$el);
+		return modelView.render().$el.html();
 	}
 });
