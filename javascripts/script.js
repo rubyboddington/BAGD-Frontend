@@ -16,7 +16,11 @@ $(document).ready(function() {
 
 	$("#page-content #names-nav li a").click(function(e){
 		$("#page-content #names-nav li a").removeClass("active");
-		$(this).toggleClass("active");
+		$(this).addClass("active");
+
+		// Render each students data
+		var students_display = new singleView({model: students_data.where({name: $(this).text()})[0]});
+		$("#page-content #main .content").html(students_display.render().$el);
 	});
 
 	// Fix sponsor logo position
@@ -40,9 +44,6 @@ $(document).ready(function() {
 			$("#main header").css('background-color', 'none');
 		}
 	});
-
-	// Render each students data
-	$("#page-content #main .content").html(students_display.render().$el);
 });
 
 function holdingPageDetails(){

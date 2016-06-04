@@ -28,6 +28,7 @@ html, body{
 	cursor: help;
 	background-color: $bgcolour;
 	height: 100vh;
+	overflow: hidden;
 
 	@media $(small){
 		font-size: 25px;
@@ -251,7 +252,6 @@ h6{
 			img, iframe{
 				width: 100%;
 				max-width: 700px;
-				height: auto;
 			}
 		}
 

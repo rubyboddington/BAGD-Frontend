@@ -225,36 +225,36 @@
 			</section>
 
 
-			<section class="hidden" id="singleStudent">
+			<script type="text/template" class="hidden" id="singleStudent">
 				<h2 class="studentName">
 					(: name :)
 				</h2>
 				<div class="details">
-				): if (typeof(website) !== "undefined") { :(
-					<p><a href="(: website :)" target=_blank>(: website :)</a></p>
+				): if (typeof link_to_personal_website !== "undefined") { :(
+					<p><a href="(: link_to_personal_website :)" target=_blank>(: link_to_personal_website :)</a></p>
 				): } :(
 
-				): if (typeof(email) !== "undefined") { :(
+				): if (typeof email !== "undefined") { :(
 					<p>(: email :)</p>
 				): } :(
 
-				): if (typeof(twitter) !== "undefined") { :(
-					<p>(: twitter :)</p>
+				): if (typeof twitter !== "undefined") { :(
+					<p><a href="): print('https://twitter.com/' + twitter.substring(1)); :(" target=_blank>(: twitter :)</a></p>
 				): } :(
 
-				): if (typeof(instagram) !== "undefined") { :(
-					<p>(: instagram :)</p>
+				): if (typeof instagram !== "undefined") { :(
+					<p><a href="): print('https://www.instagram.com/' + instagram.substring(1)); :(" target=_blank>(: instagram :)</a></p>
 				): } :(
 
-				): if (typeof(youtube) !== "undefined") { :(
+				): if (typeof youtube !== "undefined") { :(
 					<p><a href="(: youtube :)" target=_blank>(: youtube :)</a></p>
 				): } :(
 
-				): if (typeof(vimeo) !== "undefined") { :(
+				): if (typeof vimeo !== "undefined") { :(
 					<p><a href="(: vimeo :)" target=_blank>(: vimeo :)</a></p>
 				): } :(
 
-				): if (typeof(bio) !== "undefined") { :(
+				): if (typeof bio !== "undefined") { :(
 					<article>(: bio :)</article>
 				): } :(
 
@@ -262,29 +262,29 @@
 
 				<div class="images">
 					<br>
-					): if (hero_image_video == "Image") { :(
+					): if (hero_image_video == "Image" && typeof hero_image == "string") { :(
 						): print(smark.generate(hero_image).html); :(
-					): }else if (hero_image_video == "Video"){ :(
+					): }else if (hero_image_video == "Video" && typeof hero_video == "string"){ :(
 						): print(smark.generate(hero_video).html); :(
 					): } :(
 					<br>
-					): if (typeof(image_video_1) != "undefined"){ :(
-						): if (image_video_1 == "Image") { :(
+					): if (typeof image_video_1 != "undefined"){ :(
+						): if (image_video_1 == "Image" && typeof image_1 == "string") { :(
 							): print(smark.generate(image_1).html); :(
-						): }else if (image_video_1 == "Video"){ :(
+						): }else if (image_video_1 == "Video" && typeof video_1 == "string"){ :(
 							): print(smark.generate(video_1).html); :(
 						): } :(
 					): } :(
 					<br>
-					): if (typeof(image_video_2) != "undefined"){ :(
-						): if (image_video_2 == "Image") { :(
+					): if (typeof image_video_2 != "undefined"){ :(
+						): if (image_video_2 == "Image" && typeof image_2 == "string") { :(
 							): print(smark.generate(image_2).html); :(
-						): }else if (image_video_2 == "Video"){ :(
+						): }else if (image_video_2 == "Video" && typeof video_2 == "string"){ :(
 							): print(smark.generate(video_2).html); :(
 						): } :(
 					): } :(
 				</div>
-			</section>
+			</script>
 		</div>
 
 		<script src="./javascripts/magic.js"></script>

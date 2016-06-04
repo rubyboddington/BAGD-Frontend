@@ -30,6 +30,7 @@ html, body{
 	cursor: help;
 	background-color: #fff;
 	height: 100vh;
+	overflow: hidden;
 }
 
 @media only screen and (max-width: 479px){
@@ -258,7 +259,6 @@ h6{
 #page-content #main #studentWrapper img, #page-content #main #studentWrapper iframe{
 	width: 100%;
 	max-width: 700px;
-	height: auto;
 }
 
 #page-content #main #questions{

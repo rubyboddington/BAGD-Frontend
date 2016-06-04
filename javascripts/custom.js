@@ -5,7 +5,7 @@ var Backbone = require("backbone");
 window.smark = require("smark");
 Backbone.$ = $;
 var students_data = require("./collection.js");
-var singleView = require("./singleView.js");
+window.singleView = require("./singleView.js");
 var collectionView = require("./collectionView.js");
 var magic = magic || {};
 
@@ -73,8 +73,7 @@ window.addEventListener("receivedData", function(){
 
 
 	// students_display is the single view object meant to render info for one student
-	window.students_display = new singleView({model: students_data.at(90)});
-	// $("#page-content #wrapper").html(students_display.render().$el);
+	// window.students_display = new singleView({model: students_data.at(90)});
 
 	var questions_display = $("#questions").html();
 	$("#page-content #main .content").html(questions_display);

@@ -5,7 +5,7 @@ Backbone.$ = $;
 
 _.templateSettings = {
 	interpolate: /\(:(.+?):\)/g,
-	evaluate: /\):(.+?):\(/g
+	evaluate: /\):(.+?):\(/gm
 };
 
 // The view renderer that only render once instance of a model
