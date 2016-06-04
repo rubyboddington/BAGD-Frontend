@@ -19,6 +19,13 @@ $(document).ready(function() {
 		$(this).toggleClass("active");
 	});
 
+	// Fix sponsor logo position
+	$("#main").scroll(function(e) {
+		var margin = -10;
+		margin = margin - $("#main").scrollTop();
+		$("#sponsors img").css('margin-top', margin);
+	});
+
 });
 
 function holdingPageDetails(){
