@@ -8,7 +8,7 @@
     "build:css": "postcss --config postcss-config.json",
     "build": "npm run build:js && npm run build:css",
     "precompile": "npm run build",
-    "compile:js": "uglifyjs -m --screw-ie8 ./javascripts/magic.js > ./javascripts/magic.min.js",
+    "compile:js": "uglifyjs -m --screw-ie8 -c drop_console=true,warnings=false ./javascripts/magic.js > ./javascripts/magic.min.js",
     "compile:css": "cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
     "compile": "npm run compile:js && npm run compile:css",
     "prewatch": "npm run compile",
@@ -43,5 +43,7 @@
     "underscore": "global:_",
     "backbone": "global:Backbone"
   },
-  "dependencies": {}
+  "dependencies": {
+    "smark": "git://github.com/limzykenneth/smark.git#2.0-dev"
+  }
 }
