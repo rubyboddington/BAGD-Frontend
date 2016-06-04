@@ -63,7 +63,9 @@ a:visited{
 	color:#fff;
 }
 
-a:hover{}
+a:hover{
+	cursor: pointer;
+}
 
 h1{
 	font-size: 140px;
@@ -164,10 +166,24 @@ h6{
 	    -ms-flex-positive: 1;
 	        flex-grow: 1;
 	height: 40px;
-	background-color: #fff;
+	background-color: #ffff00;
 	color: #000;
 	border: none;
 	margin: 0 10px;
+}
+
+#page-content .nav#names-nav #side-nav{
+	float: right;
+	position: relative;
+	right: 20px;
+	top: -100vh;
+	height: 100vh;
+	color: #fff;
+}
+
+#page-content .nav#names-nav #side-nav ul{
+	padding-top: 130px;
+	list-style: none;
 }
 
 #page-content #main{

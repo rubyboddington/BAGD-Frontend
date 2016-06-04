@@ -50,7 +50,7 @@ a{
 		color:#fff;
 	}
 	&:hover{
-
+		cursor: pointer;
 	}
 }
 
@@ -152,10 +152,24 @@ h6{
 				.btn{
 					flex-grow: 1;
 					height: 40px;
-					background-color: $white;
+					background-color: $yellow;
 					color: $black;
 					border: none;
 					margin: 0 10px;
+				}
+			}
+
+			#side-nav{
+				float: right;
+				position: relative;
+				right: 20px;
+				top: -100vh;
+				height: 100vh;
+				color: $white;
+
+				ul{
+					padding-top: 130px;
+					list-style: none;
 				}
 			}
 		}
