@@ -4,9 +4,10 @@ var _ = require("underscore");
 var Backbone = require("backbone");
 window.smark = require("smark");
 Backbone.$ = $;
-var students_data = require("./collection.js");
+window.students_data = require("./collection.js");
 window.singleView = require("./singleView.js");
 var collectionView = require("./collectionView.js");
+window.galleryView = require("./galleryView.js");
 var magic = magic || {};
 
 // Hold that ready, magic needs to happen first!
@@ -69,12 +70,9 @@ window.addEventListener("receivedData", function(){
 			magic.getVideoImage(el, availableVideos);
 		}
 	});
-	console.log(students_data.at(0).toJSON());
+	// console.log(students_data.at(0).toJSON());
 
-
-	// students_display is the single view object meant to render info for one student
-	// window.students_display = new singleView({model: students_data.at(90)});
-
+	// Render the home page
 	var questions_display = $("#questions").html();
 	$("#page-content #main .content").html(questions_display);
 

@@ -244,6 +244,18 @@ h6{
 	padding: 130px 40px 0px 40px;
 }
 
+#page-content #main #main-hover-content{
+	word-wrap: break-word;
+	padding: 130px 40px 0px 40px;
+	position: fixed;
+	display: none;
+	background-color: #fff;
+	height: 100%;
+	width: 100%;
+	max-width: 60vw;
+	z-index: 100;
+}
+
 #page-content #main #studentWrapper a{
 	color: #000;
 }
@@ -298,6 +310,20 @@ h6{
 
 #page-content #main #sponsors .sponsor:hover span{
 	opacity: 0;
+}
+
+#page-content .gallery{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+#page-content .gallery img{
+	max-width: 300px;
+	max-height: 300px;
+	padding: 5px;
 }
 
 /* Will probably show holding page for mobile so please keep */

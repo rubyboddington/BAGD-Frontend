@@ -236,6 +236,18 @@ h6{
 			padding: 130px 40px 0px 40px;
 		}
 
+		#main-hover-content{
+			word-wrap: break-word;
+			padding: 130px 40px 0px 40px;
+			position: fixed;
+			display: none;
+			background-color: $white;
+			height: 100%;
+			width: 100%;
+			max-width: 60vw;
+			z-index: 100;
+		}
+
 		#studentWrapper{
 			a{
 				color: $black;
@@ -291,6 +303,16 @@ h6{
 					}
 				}
 			}
+		}
+	}
+
+	.gallery{
+		display: flex;
+		flex-wrap: wrap;
+		img{
+			max-width: 300px;
+			max-height: 300px;
+			padding: 5px;
 		}
 	}
 
