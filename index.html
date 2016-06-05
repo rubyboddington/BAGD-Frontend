@@ -272,6 +272,10 @@
 							): print(smark.generate(hero_video).html); :(
 						): } :(
 					): } :(
+
+					): if (caption_hero){ :(
+						): print(smark.generate(caption_hero, {type: "paragraph"}).html) :(
+					): } :(
 					<br>
 					): if (typeof image_video_1 != "undefined"){ :(
 						): if (image_video_1 == "Image" && typeof image_1_medium == "string") { :(
@@ -280,6 +284,10 @@
 							): print(smark.generate(video_1).html); :(
 						): } :(
 					): } :(
+
+					): if (caption_1){ :(
+						): print(smark.generate(caption_1, {type: "paragraph"}).html) :(
+					): } :(
 					<br>
 					): if (typeof image_video_2 != "undefined"){ :(
 						): if (image_video_2 == "Image" && typeof image_2_medium == "string") { :(
@@ -287,6 +295,10 @@
 						): }else if (image_video_2 == "Video" && typeof video_2 == "string"){ :(
 							): print(smark.generate(video_2).html); :(
 						): } :(
+					): } :(
+
+					): if (caption_1){ :(
+						): print(smark.generate(caption_1, {type: "paragraph"}).html) :(
 					): } :(
 				</div>
 			</script>
