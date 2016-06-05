@@ -10,6 +10,18 @@ $(document).ready(function() {
 	window.currDisID = "";
 	window.currDisType = "questions";
 
+	// Main navigation links
+	$("#page-content #main header nav #home").click(function(e) {
+		$("#page-content #main .content").html(questionMain);
+		$("#page-content #name-list a").removeClass("active");
+		$("#page-content #tags-nav li a").removeClass("active");
+		$("#page-content #tags-nav li a").each(function(i) {
+			setTagsDisplay($(this));
+		});
+		resetNameList(students_data);
+		currDisType = "questions";
+	});
+
 	// Tags navigation menu
 	$("#page-content #tags-nav li a").hover(function() {
 		// Hover in
@@ -46,13 +58,7 @@ $(document).ready(function() {
 	}).click(function(e){
 		$(this).toggleClass('active');
 
-		var txt = $(this).text().substring(1);
-		if($(this).hasClass("active")){
-			txt = "+" + txt;
-		}else{
-			txt = "-" + txt;
-		}
-		$(this).text(txt);
+		setTagsDisplay($(this));
 
 		// Create a collection of all the works with the tags associated with it
 		var galleryCollection;
@@ -74,9 +80,7 @@ $(document).ready(function() {
 				renderStudent(currDisID);
 				currDisType = "work";
 			}
-			students_list = new collectionView({collection: students_data});
-			$("#page-content #names-nav .nav-content").html(students_list.render().$el);
-			rebindEvents();
+			resetNameList(students_data);
 			return;
 		}
 
@@ -89,10 +93,7 @@ $(document).ready(function() {
 		}));
 
 		// Render a new name list
-		students_list = new collectionView({collection: galleryCollection});
-		$("#page-content #names-nav .nav-content").html(students_list.render().$el);
-		rebindEvents();
-
+		resetNameList(galleryCollection);
 
 		// Render the gallery
 		var gallery_display = new galleryView({collection: galleryCollection});
@@ -153,6 +154,22 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function resetNameList(collection){
+	students_list = new collectionView({collection: collection});
+	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
+	rebindEvents();
+}
+
+function setTagsDisplay($el){
+	var txt = $el.text().substring(1);
+	if($el.hasClass("active")){
+		txt = "+" + txt;
+	}else{
+		txt = "-" + txt;
+	}
+	$el.text(txt);
+}
 
 function renderStudent(cid){
 	var students_display = new singleView({model: students_data.get(cid)});
