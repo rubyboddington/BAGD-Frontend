@@ -15,7 +15,7 @@ $(document).ready(function() {
 		// Hover in
 		var txt = $(this).text().substring(2);
 		currMain = $("#page-content #main .content").html();
-		$("#page-content #main #main-hover-content").html("<h1>" + txt + "</h1>").css('display', 'block');
+		mainOverlay(true, txt);
 
 		students_data.each(function(student, key){
 			var matched = false;
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 	}, function() {
 		// Hover out
-		$("#page-content #main #main-hover-content").css('display', 'none');
+		mainOverlay(false);
 		$("#page-content #name-list a").removeClass("active");
 		if (currDisID !== "" && currDisType == "work"){
 			$("#page-content #name-list #" + currDisID).addClass("active");
@@ -127,7 +127,6 @@ $(document).ready(function() {
 		});
 	});
 
-
 	rebindEvents();
 
 
@@ -170,7 +169,28 @@ function rebindEvents(){
 		var cid = $(this).attr("id");
 		renderStudent(cid);
 		currDisID = students_data.where({name: $(this).text()})[0].cid;
+		mainOverlay(false);
+	}).hover(function() {
+		// Hover in
+		if(!($(this).hasClass("active"))){
+			$(this).addClass("active");
+		}
+		mainOverlay(true, $(this).text());
+	}, function() {
+		// Hover out
+		if($(this).hasClass("active") && currDisID != $(this).attr("id")){
+			$(this).removeClass("active");
+		}
+		mainOverlay(false);
 	});
+}
+
+function mainOverlay(show, content){
+	if(show){
+		$("#page-content #main #main-hover-content").html("<h1>" + content + "</h1>").css('display', 'block');
+	}else{
+		$("#page-content #main #main-hover-content").css('display', 'none');
+	}
 }
 
 function holdingPageDetails(){
