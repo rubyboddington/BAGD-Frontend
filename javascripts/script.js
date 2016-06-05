@@ -7,20 +7,53 @@ $(document).ready(function() {
 	// Save states
 	var currMain = "";
 	var questionMain = $("#page-content #main .content").html();
+	var aboutMain = $("#page-content > #about").html();
+	var pressMain = $("#page-content > #press").html();
 	window.currDisID = "";
 	window.currDisType = "questions";
 
 	// Main navigation links
+	// Home
 	$("#page-content #main header nav #home").click(function(e) {
 		$("#page-content #main .content").html(questionMain);
+		$("#page-content #main header nav a").removeClass('active');
 		$("#page-content #name-list a").removeClass("active");
-		$("#page-content #tags-nav li a").removeClass("active");
-		$("#page-content #tags-nav li a").each(function(i) {
+		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
 			setTagsDisplay($(this));
 		});
 		resetNameList(students_data);
 		currDisType = "questions";
+		// return false;
 	});
+	// About
+	$("#page-content #main header nav #show").click(function(e) {
+		$("#page-content #main .content").html(aboutMain);
+		$("#page-content #main header nav a").removeClass('active');
+		$(this).addClass('active');
+		$("#page-content #name-list a").removeClass("active");
+		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
+			setTagsDisplay($(this));
+		});
+		resetNameList(students_data);
+		currDisType = "about";
+		// return false;
+	});
+	// Press
+	$("#page-content #main header nav #press").click(function(e) {
+		$("#page-content #main .content").html(pressMain);
+		$("#page-content #main header nav a").removeClass('active');
+		$(this).addClass('active');
+		$("#page-content #name-list a").removeClass("active");
+		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
+			setTagsDisplay($(this));
+		});
+		resetNameList(students_data);
+		currDisType = "press";
+		// return false;
+	});
+	// $("*:not(#page-content #main header nav a)").click(function(e) {
+	// 	$("#page-content #main header nav a").removeClass("active");
+	// });
 
 	// Tags navigation menu
 	$("#page-content #tags-nav li a").hover(function() {
@@ -56,6 +89,9 @@ $(document).ready(function() {
 		}
 
 	}).click(function(e){
+		// Reset main navigation
+		$("#page-content #main header nav a").removeClass("active");
+
 		$(this).toggleClass('active');
 
 		setTagsDisplay($(this));
@@ -103,16 +139,21 @@ $(document).ready(function() {
 
 		// Hover and click event for the gallery items
 		$("#page-content #main .content .gallery a").hover(function() {
+			// Hover in
 			var hoverID = $(this).children('img').attr("id").substring(5);
 			if(!($("#page-content #name-list #" + hoverID).hasClass("active"))){
 				$("#page-content #name-list #" + hoverID).addClass("active");
 			}
 		}, function() {
+			// Hover out
 			var hoverID = $(this).children('img').attr("id").substring(5);
 			if($("#page-content #name-list #" + hoverID).hasClass("active")){
 				$("#page-content #name-list #" + hoverID).removeClass("active");
 			}
 		}).click(function(e) {
+			// Reset main navigation
+			$("#page-content #main header nav a").removeClass("active");
+
 			// Render student info
 			$("#page-content #names-nav li a").removeClass("active");
 
@@ -179,6 +220,9 @@ function renderStudent(cid){
 function rebindEvents(){
 	// Names navigation menu
 	$("#page-content #names-nav li a").click(function(e){
+		// Reset main navigation
+		$("#page-content #main header nav a").removeClass("active");
+
 		$("#page-content #names-nav li a").removeClass("active");
 		$(this).addClass("active");
 

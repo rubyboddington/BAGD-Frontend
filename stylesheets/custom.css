@@ -229,6 +229,10 @@ h6{
 				padding-left: 15px;
 				padding-right: 15px;
 				text-decoration: underline;
+
+				&:hover, &.active{
+					text-decoration: none;
+				}
 			}
 		}
 

@@ -240,6 +240,10 @@ h6{
 	text-decoration: underline;
 }
 
+#page-content #main header a:hover, #page-content #main header a.active{
+	text-decoration: none;
+}
+
 #page-content #main .content{
 	padding: 130px 40px 0px 40px;
 }
