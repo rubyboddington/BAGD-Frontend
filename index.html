@@ -172,9 +172,9 @@
 			<section id="main" class="l6">
 				<header class="fixed l6">
 					<nav>
-						<a>About the Show</a>
-						<a>Press</a>
-						<a>Home</a>
+						<a id="show">About the Show</a>
+						<a id="press">Press</a>
+						<a id="home">Home</a>
 					</nav>
 				</header>
 
@@ -273,7 +273,7 @@
 						): } :(
 					): } :(
 
-					): if (caption_hero){ :(
+					): if (typeof caption_hero !== "undefined"){ :(
 						): print(smark.generate(caption_hero, {type: "paragraph"}).html) :(
 					): } :(
 					<br>
@@ -285,7 +285,7 @@
 						): } :(
 					): } :(
 
-					): if (caption_1){ :(
+					): if (typeof caption_1 !== "undefined"){ :(
 						): print(smark.generate(caption_1, {type: "paragraph"}).html) :(
 					): } :(
 					<br>
@@ -297,7 +297,7 @@
 						): } :(
 					): } :(
 
-					): if (caption_2){ :(
+					): if (typeof caption_2 !== "undefined"){ :(
 						): print(smark.generate(caption_2, {type: "paragraph"}).html) :(
 					): } :(
 				</div>
