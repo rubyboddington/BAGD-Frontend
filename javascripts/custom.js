@@ -6,7 +6,7 @@ window.smark = require("smark");
 Backbone.$ = $;
 window.students_data = require("./collection.js");
 window.singleView = require("./singleView.js");
-var collectionView = require("./collectionView.js");
+window.collectionView = require("./collectionView.js");
 window.galleryView = require("./galleryView.js");
 var magic = magic || {};
 
@@ -76,7 +76,7 @@ window.addEventListener("receivedData", function(){
 	var questions_display = $("#questions").html();
 	$("#page-content #main .content").html(questions_display);
 
-	var students_list = new collectionView({collection: students_data});
+	window.students_list = new collectionView({collection: students_data});
 	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
 
 

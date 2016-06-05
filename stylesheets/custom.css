@@ -309,10 +309,47 @@ h6{
 	.gallery{
 		display: flex;
 		flex-wrap: wrap;
-		img{
+		align-items: center;
+
+		a{
+			display: inline-block;
+			position: relative;
+			width: auto;
+			height: auto;
 			max-width: 300px;
-			max-height: 300px;
-			padding: 5px;
+		    max-height: 300px;
+			margin: 5px;
+
+			img{
+				max-width: 300px;
+				max-height: 300px;
+			    vertical-align:top;
+			}
+
+		    &:after, &:before {
+			    position:absolute;
+			    opacity:0;
+			}
+			&:after {
+			    content:'\A';
+			    width:100%;
+			    height:100%;
+			    top:0;
+			    left:0;
+			    background:#ff0;
+			}
+			&:before {
+			    content: attr(data-overlay-text);
+			    width:100%;
+			    color:#000;
+			    z-index:1;
+			    top:0;
+			    padding:20px 20px;
+			    box-sizing:border-box;
+			}
+			&:hover:after, &:hover:before {
+			    opacity:1;
+			}
 		}
 	}
 

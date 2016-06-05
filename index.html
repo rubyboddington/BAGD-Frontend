@@ -292,17 +292,19 @@
 			</script>
 
 			<script type="text/template" id="singleImage">
-				<a><img class="images" src='
-					): if(hero_image_video == "Image" && typeof hero_image_medium !== "undefined"){ :(
-						): print(hero_image_medium); :(
-					): }else if (hero_image_video == "Video" && typeof hero_video_image !== "undefined"){ :(
-						): print(hero_video_image); :(
+				<a data-overlay-text="(: name :)">
+					<img class="images" src='
+						): if(hero_image_video == "Image" && typeof hero_image_medium !== "undefined"){ :(
+							): print(hero_image_medium); :(
+						): }else if (hero_image_video == "Video" && typeof hero_video_image !== "undefined"){ :(
+							): print(hero_video_image); :(
+						): } :(
+					' alt='
+					): if (typeof caption_hero != "undefined"){ :(
+						): print(caption_hero); :(
 					): } :(
-				' alt='
-				): if (typeof caption_hero != "undefined"){ :(
-					): print(caption_hero); :(
-				): } :(
-				' id='image): print(this.model.cid); :('></a>
+					' id='image): print(this.model.cid); :('>
+				</a>
 			</script>
 		</div>
 

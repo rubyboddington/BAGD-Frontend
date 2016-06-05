@@ -318,12 +318,53 @@ h6{
 	display: flex;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
-#page-content .gallery img{
+#page-content .gallery a{
+	display: inline-block;
+	position: relative;
+	width: auto;
+	height: auto;
 	max-width: 300px;
 	max-height: 300px;
-	padding: 5px;
+	margin: 5px;
+}
+
+#page-content .gallery a img{
+	max-width: 300px;
+	max-height: 300px;
+	vertical-align:top;
+}
+
+#page-content .gallery a:after, #page-content .gallery a:before {
+	position:absolute;
+	opacity:0;
+}
+
+#page-content .gallery a:after {
+	content:'\A';
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background:#ff0;
+}
+
+#page-content .gallery a:before {
+	content: attr(data-overlay-text);
+	width:100%;
+	color:#000;
+	z-index:1;
+	top:0;
+	padding:20px 20px;
+	box-sizing:border-box;
+}
+
+#page-content .gallery a:hover:after, #page-content .gallery a:hover:before {
+	opacity:1;
 }
 
 /* Will probably show holding page for mobile so please keep */

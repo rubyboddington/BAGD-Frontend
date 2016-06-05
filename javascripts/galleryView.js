@@ -9,7 +9,6 @@ var imageView = Backbone.View.extend({
 	template: _.template($("#singleImage").html()),
 
 	render: function(){
-		console.log(this.model.toJSON());
 		if (this.model.get("hero_image_medium") || this.model.get("hero_video_image")){
 			var imageTemplate = this.template(this.model.toJSON());
 			this.$el.html(imageTemplate);
@@ -25,7 +24,7 @@ var galleryView = Backbone.View.extend({
 	className: "gallery",
 
 	render: function(){
-		_.each(this.collection, this.addModel, this);
+		this.collection.each(this.addModel, this);
 		return this;
 	},
 

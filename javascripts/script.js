@@ -7,8 +7,8 @@ $(document).ready(function() {
 	// Save states
 	var currMain = "";
 	var questionMain = $("#page-content #main .content").html();
-	var currDisID = "";
-	var students_display;
+	window.currDisID = "";
+	window.currDisType = "questions";
 
 	// Tags navigation menu
 	$("#page-content #tags-nav li a").hover(function() {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 		// Hover out
 		$("#page-content #main #main-hover-content").css('display', 'none');
 		$("#page-content #name-list a").removeClass("active");
-		if (currDisID !== ""){
+		if (currDisID !== "" && currDisType == "work"){
 			$("#page-content #name-list #" + currDisID).addClass("active");
 		}
 
@@ -69,35 +69,66 @@ $(document).ready(function() {
 		if(_.isEmpty(selectedTags)){
 			if (currDisID === ""){
 				$("#page-content #main .content").html(questionMain);
+				currDisType = "question";
 			}else{
-				$("#page-content #main .content").html(students_display.render().$el);
+				renderStudent(currDisID);
+				currDisType = "work";
 			}
+			students_list = new collectionView({collection: students_data});
+			$("#page-content #names-nav .nav-content").html(students_list.render().$el);
+			rebindEvents();
 			return;
 		}
 
-		galleryCollection = students_data.filter(function(student){
+		// Create a new filtered collection
+		galleryCollection = new Backbone.Collection(students_data.filter(function(student){
 			var tags = student.get("tags");
 			if (_.isEqual(_.intersection(tags, selectedTags), selectedTags)){
 				return true;
 			}
-		});
+		}));
 
+		// Render a new name list
+		students_list = new collectionView({collection: galleryCollection});
+		$("#page-content #names-nav .nav-content").html(students_list.render().$el);
+		rebindEvents();
+
+
+		// Render the gallery
 		var gallery_display = new galleryView({collection: galleryCollection});
 		$("#page-content #main .content").html(gallery_display.render().$el);
 		currMain = $("#page-content #main .content").html();
+		currDisType = "gallery";
+
+		// Hover and click event for the gallery items
+		$("#page-content #main .content .gallery a").hover(function() {
+			var hoverID = $(this).children('img').attr("id").substring(5);
+			if(!($("#page-content #name-list #" + hoverID).hasClass("active"))){
+				$("#page-content #name-list #" + hoverID).addClass("active");
+			}
+		}, function() {
+			var hoverID = $(this).children('img').attr("id").substring(5);
+			if($("#page-content #name-list #" + hoverID).hasClass("active")){
+				$("#page-content #name-list #" + hoverID).removeClass("active");
+			}
+		}).click(function(e) {
+			// Render student info
+			$("#page-content #names-nav li a").removeClass("active");
+
+			var clickID = $(this).children('img').attr("id").substring(5);
+			if(!($("#page-content #name-list #" + clickID).hasClass("active"))){
+				$("#page-content #name-list #" + clickID).addClass("active");
+			}
+
+			renderStudent(clickID);
+
+			currDisID = clickID;
+			currDisType = "work";
+		});
 	});
 
 
-	// Names navigation menu
-	$("#page-content #names-nav li a").click(function(e){
-		$("#page-content #names-nav li a").removeClass("active");
-		$(this).addClass("active");
-
-		// Render each students data
-		students_display = new singleView({model: students_data.where({name: $(this).text()})[0]});
-		$("#page-content #main .content").html(students_display.render().$el);
-		currDisID = students_data.where({name: $(this).text()})[0].cid;
-	});
+	rebindEvents();
 
 
 	// Miscellaneous fix and functions
@@ -123,6 +154,24 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function renderStudent(cid){
+	var students_display = new singleView({model: students_data.get(cid)});
+	$("#page-content #main .content").html(students_display.render().$el);
+}
+
+function rebindEvents(){
+	// Names navigation menu
+	$("#page-content #names-nav li a").click(function(e){
+		$("#page-content #names-nav li a").removeClass("active");
+		$(this).addClass("active");
+
+		// Render each students data
+		var cid = $(this).attr("id");
+		renderStudent(cid);
+		currDisID = students_data.where({name: $(this).text()})[0].cid;
+	});
+}
 
 function holdingPageDetails(){
 	if(window.innerWidth >= 480){
