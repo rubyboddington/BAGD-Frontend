@@ -388,8 +388,14 @@ $(document).ready(function() {
 		}
 
 		var search_display = returnRenderedSearch(searchCollection);
-		console.log(search_display);
 		$("#page-content #search-overlay").html(search_display);
+
+		$("#page-content #search-overlay #search-results a").click(function(e) {
+			var cid = $(this).attr("id");
+			renderStudent(cid);
+
+			enterSearchMode(false);
+		});
 	});
 
 
