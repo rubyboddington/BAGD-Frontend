@@ -326,6 +326,8 @@ function renderStudent(cid){
 	var students_display = new singleView({model: students_data.get(cid)});
 	$("#page-content #main .content").html(students_display.render().$el);
 
+	$("#page-content #main").scrollTop(0);
+
 	var listName = "#page-content #name-list #" + cid;
 	if(!($(listName).hasClass('active'))){
 		$(listName).addClass('active');
