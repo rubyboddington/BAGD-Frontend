@@ -216,7 +216,7 @@ h6{
 	text-decoration: none;
 }
 
-#page-content section:not(.hidden){
+#page-content section:not(.hidden, .full-overlay){
 	overflow-y: auto;
 	height: 100%;
 	float: left;
@@ -403,7 +403,7 @@ h6{
 	opacity:1;
 }
 
-#page-content #full-overlay{
+#page-content .full-overlay{
 	display: none;
 	position: absolute;
 	background-color: #fff;
@@ -416,20 +416,9 @@ h6{
 	padding: 130px 30px 30px 30px;
 }
 
-#page-content #full-overlay-hover{
-	display: none;
-	position: absolute;
-	background-color: #fff;
-	z-index: 100;
-	width: 100vw;
-	height: 100vh;
-	opacity: 0;
-	-webkit-transition: opacity 0.2s ease;
-	        transition: opacity 0.2s ease;
-	padding: 130px 30px 30px 30px;
-}
+#page-content .full-overlay#full-overlay{}
 
-#page-content #full-overlay-hover #map{
+#page-content .full-overlay#full-overlay-hover #map{
 	position: relative;
 	width: 100%;
 	margin-top: 10%;
