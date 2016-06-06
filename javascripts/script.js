@@ -229,14 +229,14 @@ $(document).ready(function() {
 
 	// Main header background behaviour
 	setTimeout(function(){
-		if($("#main").width() < 780 + $("header #main-header nav").width()){
+		if($("#main").width() < $("#page-content #main .details >article").width() + $("header #main-header nav").width()){
 			$("header #main-header").css('background-color', 'white');
 		}else{
 			$("header #main-header").css('background-color', 'none');
 		}
 	}, 1);
 	$(window).resize(function(){
-		if($("#main").width() < 780 + $("header #main-header nav").width()){
+		if($("#main").width() < $("#page-content #main .details >article").width() + $("header #main-header nav").width()){
 			$("header #main-header").css('background-color', 'white');
 		}else{
 			$("header #main-header").css('background-color', 'none');
