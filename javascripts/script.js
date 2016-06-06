@@ -10,8 +10,13 @@ $(document).ready(function() {
 	var aboutMain = $("#page-content > #about").html();
 	var pressMain = $("#page-content > #press").html();
 	window.currDisID = "";
+	// enums for currDisType: questions, work, about, press, gallery
 	window.currDisType = "questions";
 
+
+	/*--------------------------------------------------------*/
+	/*                        Main                            */
+	/*--------------------------------------------------------*/
 	// Main navigation links
 	// Home
 	$("#page-content #main header nav #home").click(function(e) {
@@ -49,7 +54,6 @@ $(document).ready(function() {
 		});
 		resetNameList(students_data);
 		currDisType = "press";
-		// return false;
 	});
 	// $("*:not(#page-content #main header nav a)").click(function(e) {
 	// 	$("#page-content #main header nav a").removeClass("active");
@@ -171,6 +175,23 @@ $(document).ready(function() {
 
 	rebindEvents();
 
+	/*--------------------------------------------------------*/
+	/*                        Tags                            */
+	/*--------------------------------------------------------*/
+	$("#page-content #tags-nav header #clear-tags").click(function(e) {
+		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
+			setTagsDisplay($(this));
+		});
+		resetNameList(students_data);
+
+		if(currDisID !== ""){
+			renderStudent(currDisID);
+		}else{
+			$("#page-content #main .content").html(questionMain);
+		}
+	});
+
+
 
 	// Miscellaneous fix and functions
 	// Fix sponsor logo position
@@ -180,6 +201,7 @@ $(document).ready(function() {
 		$("#sponsors img").css('margin-top', margin);
 	});
 
+	// Main header background behaviour
 	setTimeout(function(){
 		if($("#main").width() < 780 + $("#main header nav").width()){
 			$("#main header").css('background-color', 'white');
@@ -215,6 +237,11 @@ function setTagsDisplay($el){
 function renderStudent(cid){
 	var students_display = new singleView({model: students_data.get(cid)});
 	$("#page-content #main .content").html(students_display.render().$el);
+
+	var listName = "#page-content #name-list #" + cid;
+	if(!($(listName).hasClass('active'))){
+		$(listName).addClass('active');
+	}
 }
 
 function rebindEvents(){
@@ -230,6 +257,7 @@ function rebindEvents(){
 		var cid = $(this).attr("id");
 		renderStudent(cid);
 		currDisID = students_data.where({name: $(this).text()})[0].cid;
+		currDisType = "work";
 		mainOverlay(false);
 	}).hover(function() {
 		// Hover in
