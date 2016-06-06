@@ -79,7 +79,6 @@ window.addEventListener("receivedData", function(){
 	window.students_list = new collectionView({collection: students_data});
 	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
 
-
 	// Now you can be ready, everything's loaded in and displayed!
 	$.holdReady(false);
 	$("#page-content").css("display", "inline");

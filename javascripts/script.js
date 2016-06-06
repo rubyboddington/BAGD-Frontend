@@ -4,6 +4,11 @@ $(document).ready(function() {
 	$(window).resize(holdingPageDetails);
 
 
+	// Seed the RNG with today's date
+	var seed = new Date();
+	seed = seed.getDate().toString() + seed.getMonth().toString + seed.getFullYear().toString();
+	Math.seedrandom(seed);
+
 	// Save states
 	var currMain = "";
 	var questionMain = $("#page-content #main .content").html();
@@ -23,6 +28,7 @@ $(document).ready(function() {
 		$("#page-content #main .content").html(questionMain);
 		$("#page-content header #main-header nav a").removeClass('active');
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
+		fullOverlay(false, $("#page-content header #names-header #showcase, #page-content header #names-header #map"));
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
 			setTagsDisplay($(this));
@@ -35,6 +41,7 @@ $(document).ready(function() {
 		$("#page-content #main .content").html(aboutMain);
 		$("#page-content header #main-header nav a").removeClass('active');
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
+		fullOverlay(false, $("#page-content header #names-header #showcase, #page-content header #names-header #map"));
 		$(this).addClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
@@ -48,6 +55,7 @@ $(document).ready(function() {
 		$("#page-content #main .content").html(pressMain);
 		$("#page-content header #main-header nav a").removeClass('active');
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
+		fullOverlay(false, $("#page-content header #names-header #showcase, #page-content header #names-header #map"));
 		$(this).addClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
@@ -99,7 +107,6 @@ $(document).ready(function() {
 		setTagsDisplay($(this));
 
 		// Create a collection of all the works with the tags associated with it
-		var galleryCollection;
 		var selectedTags = [];
 
 		_($("#page-content #tags-nav .nav-content li a")).each(function(el, i){
@@ -126,7 +133,7 @@ $(document).ready(function() {
 		$("#page-content header #tags-header #clear-box").css('display', 'block');
 
 		// Create a new filtered collection
-		galleryCollection = new Backbone.Collection(students_data.filter(function(student){
+		var galleryCollection = new Backbone.Collection(students_data.filter(function(student){
 			var tags = student.get("tags");
 			if (_.isEqual(_.intersection(tags, selectedTags), selectedTags)){
 				return true;
@@ -137,10 +144,9 @@ $(document).ready(function() {
 		resetNameList(galleryCollection);
 
 		// Render the gallery
-		var gallery_display = new galleryView({collection: galleryCollection});
-		$("#page-content #main .content").html(gallery_display.render().$el);
-		currMain = $("#page-content #main .content").html();
+		$("#page-content #main .content").html(returnRenderedGallery(galleryCollection));
 		currDisType = "gallery";
+		currMain = $("#page-content #main .content").html();
 
 		// Hover and click event for the gallery items
 		$("#page-content #main .content .gallery a").hover(function() {
@@ -197,24 +203,36 @@ $(document).ready(function() {
 	/*--------------------------------------------------------*/
 	/*                        Names                           */
 	/*--------------------------------------------------------*/
+	// Showcase button
 	$("#page-content header #names-header #showcase").click(function(e) {
+		Math.seedrandom(seed);
 		if (fullOverlayed){
-			fullOverlay(false);
-
-			$("#page-content header #names-header button").removeClass('active');
-			if($("#page-content header #names-header #showcase").hasClass('selected')){
-				$("#page-content header #names-header #showcase").removeClass('selected');
-			}
+			// Hide overlay
+			fullOverlay(false, $(this));
 		}else{
-			fullOverlay(true, "<h1>Smaple text</h1>", "#fff");
+			// Show overlay
+			var galleryCollection = new Backbone.Collection(students_data.sortBy(function(){
+				return Math.random();
+			}));
+			var content = returnRenderedGallery(galleryCollection);
+
+			fullOverlay(true, content, "#fff");
 
 			$("#page-content header #names-header button").addClass('active');
 			if(!($("#page-content header #names-header #showcase").hasClass('selected'))){
 				$("#page-content header #names-header #showcase").addClass('selected');
 			}
+
+			$("#page-content #full-overlay .gallery a").click(function(e) {
+				var cid = $(this).children('img').attr('id').substring(5);
+				fullOverlay(false, $("#page-content header #names-header #showcase"));
+
+				renderStudent(cid);
+			});
 		}
 	});
 
+	// Map button
 	$("#page-content header #names-header #map").hover(function() {
 		// Hover in
 		var content = "<object id='map' type='image/svg+xml' data='images/map.svg'>Your browser does not support SVG</object>";
@@ -283,6 +301,11 @@ function fullOverlay(show, content, background){
 		$("#page-content header #tags-header #clear-box").css('display', "revert");
 		$("#page-content header #tags-header #search-box #search").css('background-color', '#ff0');
 
+		$("#page-content header #names-header button").removeClass('active');
+		if(content.hasClass('selected')){
+			content.removeClass('selected');
+		}
+
 		fullOverlayed = false;
 	}
 }
@@ -335,10 +358,16 @@ function renderStudent(cid){
 
 	$("#page-content #main").scrollTop(0);
 
+	$("#page-content #name-list li a").removeClass('active');
 	var listName = "#page-content #name-list #" + cid;
 	if(!($(listName).hasClass('active'))){
 		$(listName).addClass('active');
 	}
+}
+
+function returnRenderedGallery(collection){
+	var gallery_display = new galleryView({collection: collection});
+	return gallery_display.render().$el;
 }
 
 function rebindEvents(){

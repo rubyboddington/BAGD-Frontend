@@ -432,7 +432,17 @@ h6{
 	padding: 130px 30px 30px 30px;
 }
 
-#page-content .full-overlay#full-overlay{}
+#page-content .full-overlay#full-overlay{
+	width: 100%;
+	margin: 0 auto;
+	overflow-y: auto;
+}
+
+#page-content .full-overlay#full-overlay .gallery{
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
 
 #page-content .full-overlay#full-overlay-hover #map{
 	position: relative;

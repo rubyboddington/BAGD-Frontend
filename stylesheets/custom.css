@@ -419,7 +419,13 @@ h6{
 		padding: 130px 30px 30px 30px;
 
 		&#full-overlay{
+			width: 100%;
+			margin: 0 auto;
+			overflow-y: auto;
 
+			.gallery{
+				justify-content: center;
+			}
 		}
 
 		&#full-overlay-hover{
