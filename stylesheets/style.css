@@ -114,6 +114,7 @@ h6{
 #page-content header{
 	width: 100vw;
 	position: fixed;
+	z-index: 1000;
 }
 
 #page-content header > div{
@@ -172,7 +173,7 @@ h6{
 	height: 40px;
 	background-color: #ffff00;
 	color: #000;
-	border: none;
+	border: 1px solid black;
 	margin: 0;
 }
 
@@ -182,6 +183,15 @@ h6{
 
 #page-content header #names-header #showcase-map .btn:last-child{
 	margin-left: 10px;
+}
+
+#page-content header #names-header #showcase-map .btn.active{
+	background-color: #fff;
+}
+
+#page-content header #names-header #showcase-map .btn:hover, #page-content header #names-header #showcase-map .btn.active.selected{
+	background-color: #000;
+	color: #fff;
 }
 
 #page-content header #main-header{
@@ -391,6 +401,40 @@ h6{
 
 #page-content .gallery a:hover:after, #page-content .gallery a:hover:before {
 	opacity:1;
+}
+
+#page-content #full-overlay{
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	z-index: 100;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s ease;
+	        transition: opacity 0.2s ease;
+	padding: 130px 30px 30px 30px;
+}
+
+#page-content #full-overlay-hover{
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	z-index: 100;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s ease;
+	        transition: opacity 0.2s ease;
+	padding: 130px 30px 30px 30px;
+}
+
+#page-content #full-overlay-hover #map{
+	position: relative;
+	width: 100%;
+	margin-top: 10%;
+	padding-left: 3%;
+	padding-right: 3%;
 }
 
 /* Will probably show holding page for mobile so please keep */

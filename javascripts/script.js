@@ -187,6 +187,37 @@ $(document).ready(function() {
 	});
 
 
+	/*--------------------------------------------------------*/
+	/*                        Names                           */
+	/*--------------------------------------------------------*/
+	$("#page-content header #names-header #showcase").click(function(e) {
+		if (fullOverlayed){
+			fullOverlay(false);
+
+			$("#page-content header #names-header button").removeClass('active');
+			if($("#page-content header #names-header #showcase").hasClass('selected')){
+				$("#page-content header #names-header #showcase").removeClass('selected');
+			}
+		}else{
+			fullOverlay(true, "<h1>Smaple text</h1>", "#fff");
+
+			$("#page-content header #names-header button").addClass('active');
+			if(!($("#page-content header #names-header #showcase").hasClass('selected'))){
+				$("#page-content header #names-header #showcase").addClass('selected');
+			}
+		}
+	});
+
+	$("#page-content header #names-header #map").hover(function() {
+		// Hover in
+		var content = "<object id='map' type='image/svg+xml' data='images/map.svg'>Your browser does not support SVG</object>";
+		fullOverlayHover(true, content);
+	}, function() {
+		//Hover out
+		fullOverlayHover(false);
+	});
+
+
 
 	// Miscellaneous fix and functions
 	// Fix sponsor logo position
@@ -212,6 +243,68 @@ $(document).ready(function() {
 		}
 	});
 });
+
+
+/*--------------------------------------------------------*/
+/*                   Custom functions                     */
+/*--------------------------------------------------------*/
+var fullOverlayed = false;
+function fullOverlay(show, content, background){
+	if (typeof background == "undefined"){
+		background = "rgba(255,255,255,0)";
+	}
+
+	if(show){
+		$("#page-content #full-overlay").html(content).css({
+			display: 'block',
+			"background-color": background
+		});
+		setTimeout(function(){
+			$("#page-content #full-overlay").css('opacity', 1);
+		}, 10);
+
+		$("#page-content header #tags-header #clear-box").css('display', 'none');
+		$("#page-content header #tags-header #search-box #search").css('background-color', '#fff');
+		fullOverlayed = true;
+
+	}else{
+		$("#page-content #full-overlay").css('opacity', 0);
+		setTimeout(function(){
+			$("#page-content #full-overlay").html("").css('display', 'none');
+		}, 200);
+
+		$("#page-content header #tags-header #clear-box").css('display', "revert");
+		$("#page-content header #tags-header #search-box #search").css('background-color', '#ff0');
+
+		fullOverlayed = false;
+	}
+}
+
+function fullOverlayHover(show, content, background){
+	if (typeof background == "undefined"){
+		background = "rgba(255,255,255,0)";
+	}
+
+	if(show){
+		$("#page-content #full-overlay-hover").html(content).css({
+			display: 'block',
+			"background-color": background
+		});
+		setTimeout(function(){
+			$("#page-content #full-overlay-hover").css('opacity', 1);
+		}, 10);
+
+		fullOverlayed = true;
+
+	}else{
+		$("#page-content #full-overlay-hover").css('opacity', 0);
+		setTimeout(function(){
+			$("#page-content #full-overlay-hover").html("").css('display', 'none');
+		}, 200);
+
+		fullOverlayed = false;
+	}
+}
 
 function resetNameList(collection){
 	students_list = new collectionView({collection: collection});

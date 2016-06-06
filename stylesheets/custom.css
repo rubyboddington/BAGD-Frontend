@@ -101,6 +101,7 @@ h6{
 	header{
 		width: 100vw;
 		position: fixed;
+		z-index: 1000;
 
 		& > div{
 			display: inline-block;
@@ -156,7 +157,7 @@ h6{
 					height: 40px;
 					background-color: $yellow;
 					color: $black;
-					border: none;
+					border: 1px solid black;
 					margin: 0;
 
 					&:first-child{
@@ -164,6 +165,15 @@ h6{
 					}
 					&:last-child{
 						margin-left: 10px;
+					}
+
+					&.active{
+						background-color: $white;
+					}
+
+					&:hover, &.active.selected{
+						background-color: $black;
+						color: $white;
 					}
 				}
 			}
@@ -384,7 +394,37 @@ h6{
 		}
 	}
 
+	#full-overlay{
+		display: none;
+		position: absolute;
+		background-color: $white;
+		z-index: 100;
+		width: 100vw;
+		height: 100vh;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+		padding: 130px 30px 30px 30px;
+	}
 
+	#full-overlay-hover{
+		display: none;
+		position: absolute;
+		background-color: $white;
+		z-index: 100;
+		width: 100vw;
+		height: 100vh;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+		padding: 130px 30px 30px 30px;
+
+		#map{
+			position: relative;
+			width: 100%;
+			margin-top: 10%;
+			padding-left: 3%;
+			padding-right: 3%;
+		}
+	}
 
 
 
