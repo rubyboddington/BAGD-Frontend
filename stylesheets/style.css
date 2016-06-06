@@ -361,9 +361,9 @@ h6{
 	display: flex;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
 }
 
 #page-content .gallery a{
@@ -373,13 +373,12 @@ h6{
 	height: auto;
 	max-width: 300px;
 	max-height: 300px;
-	margin: 5px;
+	margin: 10px;
 }
 
 #page-content .gallery a img{
 	max-width: 300px;
 	max-height: 300px;
-	vertical-align:top;
 }
 
 #page-content .gallery a:after, #page-content .gallery a:before {

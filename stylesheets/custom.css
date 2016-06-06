@@ -355,7 +355,7 @@ h6{
 	.gallery{
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
+		align-items: flex-start;
 
 		a{
 			display: inline-block;
@@ -364,12 +364,11 @@ h6{
 			height: auto;
 			max-width: 300px;
 		    max-height: 300px;
-			margin: 5px;
+			margin: 10px;
 
 			img{
 				max-width: 300px;
 				max-height: 300px;
-			    vertical-align:top;
 			}
 
 		    &:after, &:before {
