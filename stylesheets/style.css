@@ -283,12 +283,12 @@ h6{
 }
 
 #page-content #main .content{
-	padding: 130px 40px 0px 40px;
+	padding: 115px 40px 0px 40px;
 }
 
 #page-content #main #main-hover-content{
 	word-wrap: break-word;
-	padding: 130px 40px 0px 40px;
+	padding: 95px 40px 0px 40px;
 	position: fixed;
 	display: none;
 	background-color: #fff;

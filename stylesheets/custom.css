@@ -278,12 +278,12 @@ h6{
 
 	#main{
 		.content{
-			padding: 130px 40px 0px 40px;
+			padding: 115px 40px 0px 40px;
 		}
 
 		#main-hover-content{
 			word-wrap: break-word;
-			padding: 130px 40px 0px 40px;
+			padding: 95px 40px 0px 40px;
 			position: fixed;
 			display: none;
 			background-color: $white;
