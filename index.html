@@ -269,31 +269,41 @@
 				</h2>
 				<div class="details">
 				): if (typeof link_to_personal_website !== "undefined") { :(
-					<p><a href="(: link_to_personal_website :)" target=_blank>(: link_to_personal_website :)</a></p>
+					): var r = /^https?:\/\/(.+?)\/?$/g; :(
+					): var t = link_to_personal_website.replace(r, "$1"); :(
+					<p><a href="(: link_to_personal_website :)" target=_blank>(: t :)</a><br>
 				): } :(
 
 				): if (typeof email !== "undefined") { :(
-					<p>(: email :)</p>
+					<a href="mailto:(: email :)" target=_top>Email</a></p>
 				): } :(
 
 				): if (typeof twitter !== "undefined") { :(
-					<p><a href="): print('https://twitter.com/' + twitter.substring(1)); :(" target=_blank>(: twitter :)</a></p>
+					): if (twitter.charAt(0) == "@"){ :(
+						<p><a href="): print('https://twitter.com/' + twitter.substring(1)); :(" target=_blank>Twitter</a><br>
+					): }else{ :(
+						<p><a href="): print('https://twitter.com/' + twitter); :(" target=_blank>Twitter</a><br>
+					): } :(
 				): } :(
 
 				): if (typeof instagram !== "undefined") { :(
-					<p><a href="): print('https://www.instagram.com/' + instagram.substring(1)); :(" target=_blank>(: instagram :)</a></p>
+					): if (instagram.charAt(0) == "@"){ :(
+						<a href="): print('https://www.instagram.com/' + instagram.substring(1)); :(" target=_blank>Instagram</a><br>
+					): }else{ :(
+						<a href="): print('https://www.instagram.com/' + instagram); :(" target=_blank>Instagram</a><br>
+					): } :(
 				): } :(
 
 				): if (typeof youtube !== "undefined") { :(
-					<p><a href="(: youtube :)" target=_blank>(: youtube :)</a></p>
+					<a href="(: youtube :)" target=_blank>Youtube</a><br>
 				): } :(
 
 				): if (typeof vimeo !== "undefined") { :(
-					<p><a href="(: vimeo :)" target=_blank>(: vimeo :)</a></p>
+					<a href="(: vimeo :)" target=_blank>Vimeo</a></p>
 				): } :(
 
 				): if (typeof bio !== "undefined") { :(
-					<article>(: bio :)</article>
+					<br><article>(: bio :)</article>
 				): } :(
 
 				</div>
