@@ -435,9 +435,33 @@ h6{
 #page-content .full-overlay #map{
 	position: relative;
 	width: 100%;
-	margin-top: 10%;
+	margin-top: 5%;
+}
+
+#page-content .full-overlay #map svg {
 	padding-left: 3%;
 	padding-right: 3%;
+	width: 100%;
+}
+
+#page-content .full-overlay #map .sections{
+	cursor: pointer;
+}
+
+#page-content .full-overlay #map .sections:hover rect{
+	fill: #ff0;
+}
+
+#page-content .full-overlay #map .sections.active rect{
+	fill: #000;
+}
+
+#page-content .full-overlay #map .sections.active text{
+	fill: #fff;
+}
+
+#page-content .full-overlay #map text{
+	display: none;
 }
 
 #page-content .full-overlay#full-overlay{

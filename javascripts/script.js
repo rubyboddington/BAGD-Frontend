@@ -18,6 +18,42 @@ $(document).ready(function() {
 	// enums for currDisType: questions, work, about, press, gallery
 	window.currDisType = "questions";
 
+	// Constants
+	window.questions = [
+		{
+			sectionQuestion: "How does graphic communication (re)solve problems?",
+			sectionTags: "problem-solving, problem-revealing"
+		},
+		{
+			sectionQuestion: "How do we find a voice in a commercial world?",
+			sectionTags: "consumerism, anti-consumerism, commerce, retail, editorial, branding"
+		},
+		{
+			sectionQuestion: "How do we (re)design who we are?",
+			sectionTags: "gender, identity, anthropology, psychology, behaviour studies, contemporary subcultures, DIY culture, biography, education"
+		},
+		{
+			sectionQuestion: "Is technology leading us to utopia or dystopia?",
+			sectionTags: "connected life, new technologies, UX, social media, internet, alternative future, dystopia & utopia, mass media, information society, speculative design"
+		},
+		{
+			sectionQuestion: "How do we (re)materialise culture?",
+			sectionTags: "history, archeology, old media, craft and traditional techniques, obsolete technology, vintage, retro, experiential"
+		},
+		{
+			sectionQuestion: "What is wrong with design/society?",
+			sectionTags: "ecology, environment, current affairs, politics, social issues, inequality, activism, play"
+		},
+		{
+			sectionQuestion: "How is reality formed by narratives?",
+			sectionTags: "fiction, non-fiction, reportage, memory, experiential, myths, tales, folklore, personal narrative, stories, biographies, language, communication"
+		},
+		{
+			sectionQuestion: "Should design impose order or chaos?",
+			sectionTags: "educational, didactic, learning, hacking, disruption, sense, perception, subversion, chance, chaos, systematic thinking, systems, play, editorial"
+		}
+	];
+
 
 	/*--------------------------------------------------------*/
 	/*                        Main                            */
@@ -247,6 +283,7 @@ $(document).ready(function() {
 	}).click(function(e) {
 		if($("#page-content header #names-header #map").hasClass('selected')){
 			fullOverlay(false, $(this));
+			mapActive(false);
 		}else{
 			$("#page-content header #names-header button").addClass('active').removeClass('selected');
 			if(!($("#page-content header #names-header #map").hasClass('selected'))){
@@ -260,9 +297,53 @@ $(document).ready(function() {
 			});
 			fullOverlay(true, content, "#fff");
 
-			// $("#page-content #full-overlay #map-box svg")
+			mapActive(true);
+
+			var minimalTemplate = _.template($("#page-content #map-nav .fixed").html());
+			$("#page-content #full-overlay #map-box #map .sections").hover(function() {
+				// Hover in
+				var id = $(this).attr("id").substring(1);
+				var minimalContent = minimalTemplate(questions[id-1]);
+				$("#page-content #full-overlay .fixed").html(minimalContent);
+			}, function() {
+				// Hover out
+				var id = -1;
+				$("#page-content #full-overlay #map-box #map .sections").each(function(i) {
+					if($(this).attr('class').match("active")){
+						id = $(this).attr("id").substring(1);
+					}
+				});
+
+				var obj;
+				if(id == -1){
+					obj = {
+						sectionQuestion: "",
+						sectionTags: ""
+					};
+				}else{
+					obj = questions[id-1];
+				}
+				$("#page-content #full-overlay .fixed").html(minimalTemplate(obj));
+				if(!($("#page-content #full-overlay #map-box #map .sections").attr('class').match("active"))){
+
+				}else{
+
+				}
+			}).click(function(e) {
+				$("#page-content #full-overlay #map-box #map .sections").each(function(i) {
+					if($(this).attr('class').match("active")){
+						var noActive = $(this).attr('class').replace(" active", "");
+						$(this).attr('class', noActive);
+					}
+				});
+				if(!($(this).attr('class').match("active"))){
+					var currentClasses = $(this).attr('class');
+					$(this).attr('class', currentClasses + " active");
+				}
+			});
 		}
 	});
+
 
 
 
@@ -424,6 +505,14 @@ function rebindEvents(){
 		// Hover out
 		mainOverlay(false);
 	});
+}
+
+function mapActive(active){
+	if(active){
+		$("#page-content #full-overlay #map-box #map text").css('display', 'inline');
+	}else{
+		$("#page-content #full-overlay #map-box #map text").css('display', 'none');
+	}
 }
 
 function mainOverlay(show, content){

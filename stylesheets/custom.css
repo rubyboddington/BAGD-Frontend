@@ -421,9 +421,36 @@ h6{
 		#map{
 			position: relative;
 			width: 100%;
-			margin-top: 10%;
-			padding-left: 3%;
-			padding-right: 3%;
+			margin-top: 5%;
+
+			svg {
+				padding-left: 3%;
+				padding-right: 3%;
+			  	width: 100%;
+			}
+
+			.sections{
+				cursor: pointer;
+
+				&:hover{
+					rect{
+						fill: #ff0;
+					}
+				}
+
+				&.active{
+					rect{
+						fill: #000;
+					}
+					text{
+						fill: #fff;
+					}
+				}
+			}
+
+			text{
+				display: none;
+			}
 		}
 
 		&#full-overlay{
