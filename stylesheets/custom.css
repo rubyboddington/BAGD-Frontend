@@ -228,9 +228,6 @@ h6{
 				}
 
 				li{
-					hyphens: auto;
-					word-wrap: break-word;
-
 					a, h6{
 						display: inline-block;
 					}
@@ -294,7 +291,7 @@ h6{
 
 		#main-hover-content{
 			word-wrap: break-word;
-			padding: 95px 40px 0px 40px;
+			padding: 50px 40px 0px 40px;
 			position: fixed;
 			display: none;
 			background-color: $white;
