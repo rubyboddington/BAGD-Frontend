@@ -387,11 +387,15 @@ $(document).ready(function() {
 			enterSearchMode(true);
 		}
 
-		// $("#page-content #search-overlay")
+		var search_display = returnRenderedSearch(searchCollection);
+		console.log(search_display);
+		$("#page-content #search-overlay").html(search_display);
 	});
 
 
-
+	/*--------------------------------------------------------*/
+	/*                          MISC                          */
+	/*--------------------------------------------------------*/
 	// Miscellaneous fix and functions
 	// Fix sponsor logo position
 	$("#main").scroll(function(e) {
@@ -564,8 +568,9 @@ function searchOverlay(show){
 	}
 }
 
-function renderSearchResults(collection){
-
+function returnRenderedSearch(collection){
+	var search_display = new searchView({collection: collection});
+	return search_display.render().$el;
 }
 
 function rebindEvents(){

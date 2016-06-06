@@ -11,7 +11,7 @@ var nameView = Backbone.View.extend({
 
 	render: function(){
 		var nameTemplate = this.template(this.model.toJSON());
-		this.$el.html(imageTemplate);
+		this.$el.html(nameTemplate);
 		return this;
 	}
 });

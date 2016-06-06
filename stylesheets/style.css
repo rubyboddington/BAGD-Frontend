@@ -489,6 +489,16 @@ h6{
 	overflow-y: auto;
 }
 
+#page-content .full-overlay#search-overlay #search-results{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#page-content .full-overlay#search-overlay #search-results a:hover{
+	box-shadow: inset 0px -13px 0px -7px rgba(0,0,0,1);
+}
+
 /* Will probably show holding page for mobile so please keep */
 
 #page-content header.holding-page{

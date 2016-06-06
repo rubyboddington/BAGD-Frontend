@@ -476,6 +476,16 @@ h6{
 			width: 100%;
 			margin: 0 auto;
 			overflow-y: auto;
+
+			#search-results{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+
+				a:hover{
+					box-shadow: inset 0px -13px 0px -7px rgba(0,0,0,1);
+				}
+			}
 		}
 	}
 
