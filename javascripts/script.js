@@ -358,6 +358,10 @@ function rebindEvents(){
 		if($(this).hasClass("active") && currDisID != $(this).attr("id")){
 			$(this).removeClass("active");
 		}
+	});
+	// Just so that in between hover the overlay doesn't flash
+	$("#page-content #names-nav ul").hover(function() {}, function() {
+		// Hover out
 		mainOverlay(false);
 	});
 }

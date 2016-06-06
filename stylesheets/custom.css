@@ -250,6 +250,9 @@ h6{
 				color: $white;
 
 				ul li{
+					padding: 0;
+					margin: 0;
+
 					a:hover, a.active{
 						color: $yellow;
 					}
