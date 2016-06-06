@@ -8,6 +8,7 @@ window.students_data = require("./collection.js");
 window.singleView = require("./singleView.js");
 window.collectionView = require("./collectionView.js");
 window.galleryView = require("./galleryView.js");
+window.searchView = require("./searchView.js");
 var magic = magic || {};
 
 // Hold that ready, magic needs to happen first!

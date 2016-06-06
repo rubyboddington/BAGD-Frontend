@@ -139,7 +139,7 @@ h6{
 	height: 40px;
 	width: 100%;
 	border: 1px solid black;
-	background: #ffff00;
+	background: rgba(0,0,0,0);
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -465,6 +465,8 @@ h6{
 }
 
 #page-content .full-overlay#full-overlay{
+	top: 0;
+	left: 0;
 	width: 100%;
 	margin: 0 auto;
 	overflow-y: auto;
@@ -477,6 +479,15 @@ h6{
 }
 
 #page-content .full-overlay#full-overlay-hover{}
+
+#page-content .full-overlay#search-overlay{
+	top: 0;
+	left: 0;
+	z-index: 101;
+	width: 100%;
+	margin: 0 auto;
+	overflow-y: auto;
+}
 
 /* Will probably show holding page for mobile so please keep */
 
