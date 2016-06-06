@@ -70,6 +70,7 @@ a:hover{
 
 h1{
 	font-size: 140px;
+	font-weight: 100;
 	line-height: 170px;
 	margin: 0;
 	padding: 0;
@@ -323,6 +324,7 @@ h6{
 
 #page-content #main #questions u{
 	text-decoration: none;
+	line-height: 1.25em;
 }
 
 #page-content #main #questions u:hover{
