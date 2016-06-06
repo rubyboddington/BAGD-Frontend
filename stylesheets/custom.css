@@ -98,51 +98,18 @@ h6{
 }
 
 #page-content{
-	section:not(.hidden){
-		overflow-y: auto;
-		height: 100%;
-		float: left;
-		display: block;
-	}
+	header{
+		width: 100vw;
+		position: fixed;
 
-	.nav{
-		.nav-content{
-			padding-top: 130px;
-			padding-bottom: 30px;
-			min-height: 100vh;
-
-			ul{
-				margin: 0;
-				padding: 0 30px 1.5ch 30px;
-				list-style: none;
-
-				h6{
-					padding: 0;
-					margin: 0;
-				}
-			}
+		& > div{
+			display: inline-block;
+			margin: 0;
+			padidng: 0;
+			float: left;
 		}
 
-		header{
-			width: 20vw;
-		}
-
-		&#tags-nav{
-			.nav-content{
-				background: $yellow;
-
-				ul li{
-					a:hover, a.active{
-						padding-right: 2px;
-						padding-bottom: 2px;
-						padding-left: 2px;
-						margin-left: -2px;
-						background-color: $black;
-						color: $yellow;
-					}
-				}
-			}
-
+		#tags-header{
 			#search-box{
 				height: 40px;
 				width: 100%;
@@ -177,18 +144,7 @@ h6{
 			}
 		}
 
-		&#names-nav{
-			.nav-content{
-				background: $black;
-				color: $white;
-
-				ul li{
-					a:hover, a.active{
-						color: $yellow;
-					}
-				}
-			}
-
+		#names-header{
 			#showcase-map{
 				height: 40px;
 				padding: 35px 30px 55px 30px;
@@ -211,25 +167,9 @@ h6{
 					}
 				}
 			}
-
-			#side-nav{
-				float: right;
-				position: relative;
-				right: 20px;
-				top: -100vh;
-				height: 100vh;
-				color: $white;
-
-				ul{
-					padding-top: 130px;
-					list-style: none;
-				}
-			}
 		}
-	}
 
-	#main{
-		header{
+		#main-header{
 			height: 85px;
 			/* background-color: $white; */
 
@@ -250,6 +190,79 @@ h6{
 			}
 		}
 
+	}
+
+	section:not(.hidden){
+		overflow-y: auto;
+		height: 100%;
+		float: left;
+		display: block;
+	}
+
+	.nav{
+		.nav-content{
+			padding-top: 130px;
+			padding-bottom: 30px;
+			min-height: 100vh;
+
+			ul{
+				margin: 0;
+				padding: 0 30px 1.5ch 30px;
+				list-style: none;
+
+				h6{
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
+
+		&#tags-nav{
+			.nav-content{
+				background: $yellow;
+
+				ul li{
+					a:hover, a.active{
+						padding-right: 2px;
+						padding-bottom: 2px;
+						padding-left: 2px;
+						margin-left: -2px;
+						background-color: $black;
+						color: $yellow;
+					}
+				}
+			}
+		}
+
+		&#names-nav{
+			.nav-content{
+				background: $black;
+				color: $white;
+
+				ul li{
+					a:hover, a.active{
+						color: $yellow;
+					}
+				}
+			}
+
+			#side-nav{
+				float: right;
+				position: relative;
+				right: 20px;
+				top: -100vh;
+				height: 100vh;
+				color: $white;
+
+				ul{
+					padding-top: 130px;
+					list-style: none;
+				}
+			}
+		}
+	}
+
+	#main{
 		.content{
 			padding: 130px 40px 0px 40px;
 		}

@@ -88,16 +88,33 @@
 			<img src="./images/logo-spin.gif" alt="loading...">
 		</div>
 		<div id="page-content">
-			<section id="tags-nav" class="l2 nav">
-				<header class="fixed">
-					<div id="search-box">
+			<header class="fixed">
+				<div id="tags-header" class="l2">
+					<div id="search-box" class="l2">
 						<input type="text" name="search" id="search">
 					</div>
 					<div id="clear-box">
 						<a id="clear-tags">Clear All</a>
 					</div>
-				</header>
+				</div>
 
+				<div id="names-header" class="l2">
+					<div id="showcase-map">
+						<button id="showcase" class="btn">Showcase</button>
+						<button id="map" class="btn">Map</button>
+					</div>
+				</div>
+
+				<div id="main-header" class="l6">
+					<nav>
+						<a id="show">About the Show</a>
+						<a id="press">Press</a>
+						<a id="home">Home</a>
+					</nav>
+				</div>
+			</header>
+
+			<section id="tags-nav" class="l2 nav">
 				<div class="nav-content">
 					<ul>
 						<li><h6>Routes</h6></li>
@@ -149,13 +166,6 @@
 			</section>
 
 			<section id="names-nav" class="l2 nav">
-				<header class="fixed">
-					<div id="showcase-map">
-						<button id="showcase" class="btn">Showcase</button>
-						<button id="map" class="btn">Map</button>
-					</div>
-				</header>
-
 				<div class="nav-content">
 					<ul id="name-list-item">
 						<li><a id="): print(this.model.cid); :(">(: name :)</a></li>
@@ -173,14 +183,6 @@
 			</section>
 
 			<section id="main" class="l6">
-				<header class="fixed l6">
-					<nav>
-						<a id="show">About the Show</a>
-						<a id="press">Press</a>
-						<a id="home">Home</a>
-					</nav>
-				</header>
-
 				<div id="main-hover-content" class="hover-content">
 				</div>
 
@@ -190,6 +192,10 @@
 						<h2>How does graphic communication (re)solve problems?</h2>
 					</article>
 				</div>
+			</section>
+
+			<section id="full-overlay" class="hidden">
+
 			</section>
 
 			<section id="questions" class="hidden">

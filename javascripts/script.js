@@ -19,21 +19,20 @@ $(document).ready(function() {
 	/*--------------------------------------------------------*/
 	// Main navigation links
 	// Home
-	$("#page-content #main header nav #home").click(function(e) {
+	$("#page-content header #main-header #home").click(function(e) {
 		$("#page-content #main .content").html(questionMain);
-		$("#page-content #main header nav a").removeClass('active');
+		$("#page-content header #main-header nav a").removeClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
 			setTagsDisplay($(this));
 		});
 		resetNameList(students_data);
 		currDisType = "questions";
-		// return false;
 	});
 	// About
-	$("#page-content #main header nav #show").click(function(e) {
+	$("#page-content header #main-header #show").click(function(e) {
 		$("#page-content #main .content").html(aboutMain);
-		$("#page-content #main header nav a").removeClass('active');
+		$("#page-content header #main-header nav a").removeClass('active');
 		$(this).addClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
@@ -41,12 +40,11 @@ $(document).ready(function() {
 		});
 		resetNameList(students_data);
 		currDisType = "about";
-		// return false;
 	});
 	// Press
-	$("#page-content #main header nav #press").click(function(e) {
+	$("#page-content header #main-header #press").click(function(e) {
 		$("#page-content #main .content").html(pressMain);
-		$("#page-content #main header nav a").removeClass('active');
+		$("#page-content header #main-header nav a").removeClass('active');
 		$(this).addClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
@@ -55,9 +53,6 @@ $(document).ready(function() {
 		resetNameList(students_data);
 		currDisType = "press";
 	});
-	// $("*:not(#page-content #main header nav a)").click(function(e) {
-	// 	$("#page-content #main header nav a").removeClass("active");
-	// });
 
 	// Tags navigation menu
 	$("#page-content #tags-nav li a").hover(function() {
@@ -156,7 +151,7 @@ $(document).ready(function() {
 			}
 		}).click(function(e) {
 			// Reset main navigation
-			$("#page-content #main header nav a").removeClass("active");
+			$("#page-content header #main-header nav a").removeClass("active");
 
 			// Render student info
 			$("#page-content #names-nav li a").removeClass("active");
@@ -178,7 +173,7 @@ $(document).ready(function() {
 	/*--------------------------------------------------------*/
 	/*                        Tags                            */
 	/*--------------------------------------------------------*/
-	$("#page-content #tags-nav header #clear-tags").click(function(e) {
+	$("#page-content header #tags-header #clear-tags").click(function(e) {
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
 			setTagsDisplay($(this));
 		});
@@ -203,17 +198,17 @@ $(document).ready(function() {
 
 	// Main header background behaviour
 	setTimeout(function(){
-		if($("#main").width() < 780 + $("#main header nav").width()){
-			$("#main header").css('background-color', 'white');
+		if($("#main").width() < 780 + $("header #main-header nav").width()){
+			$("header #main-header").css('background-color', 'white');
 		}else{
-			$("#main header").css('background-color', 'none');
+			$("header #main-header").css('background-color', 'none');
 		}
 	}, 1);
 	$(window).resize(function(){
-		if($("#main").width() < 780 + $("#main header nav").width()){
-			$("#main header").css('background-color', 'white');
+		if($("#main").width() < 780 + $("header #main-header nav").width()){
+			$("header #main-header").css('background-color', 'white');
 		}else{
-			$("#main header").css('background-color', 'none');
+			$("header #main-header").css('background-color', 'none');
 		}
 	});
 });
@@ -248,7 +243,7 @@ function rebindEvents(){
 	// Names navigation menu
 	$("#page-content #names-nav li a").click(function(e){
 		// Reset main navigation
-		$("#page-content #main header nav a").removeClass("active");
+		$("#page-content header #main-header nav a").removeClass("active");
 
 		$("#page-content #names-nav li a").removeClass("active");
 		$(this).addClass("active");

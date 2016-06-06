@@ -111,6 +111,101 @@ h6{
 	margin:-100px 0 0 -100px;
 }
 
+#page-content header{
+	width: 100vw;
+	position: fixed;
+}
+
+#page-content header > div{
+	display: inline-block;
+	margin: 0;
+	padidng: 0;
+	float: left;
+}
+
+#page-content header #tags-header #search-box{
+	height: 40px;
+	width: 100%;
+	padding: 35px 30px 55px 30px;
+}
+
+#page-content header #tags-header #search-box #search{
+	height: 40px;
+	width: 100%;
+	border: 1px solid black;
+	background: #ffff00;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#page-content header #tags-header #search-box #search:focus{
+	outline: none;
+}
+
+#page-content header #tags-header #clear-box{
+	padding: 2px 30px 0px 30px;
+}
+
+#page-content header #tags-header #clear-box #clear-tags{
+	text-decoration: underline;
+	font-weight: bold;
+	background-color: #ffff00;
+}
+
+#page-content header #tags-header #clear-box #clear-tags:hover{
+	text-decoration: none;
+}
+
+#page-content header #names-header #showcase-map{
+	height: 40px;
+	padding: 35px 30px 55px 30px;
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	width: 100%;
+}
+
+#page-content header #names-header #showcase-map .btn{
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	height: 40px;
+	background-color: #ffff00;
+	color: #000;
+	border: none;
+	margin: 0;
+}
+
+#page-content header #names-header #showcase-map .btn:first-child{
+	margin-right: 10px;
+}
+
+#page-content header #names-header #showcase-map .btn:last-child{
+	margin-left: 10px;
+}
+
+#page-content header #main-header{
+	height: 85px;
+}
+
+/* background-color: #fff; */
+
+#page-content header #main-header nav{
+	position: absolute;
+	right: 0;
+	padding: 35px 30px 0px 50px;
+}
+
+#page-content header #main-header a{
+	padding-left: 15px;
+	padding-right: 15px;
+	text-decoration: underline;
+}
+
+#page-content header #main-header a:hover, #page-content header #main-header a.active{
+	text-decoration: none;
+}
+
 #page-content section:not(.hidden){
 	overflow-y: auto;
 	height: 100%;
@@ -135,10 +230,6 @@ h6{
 	margin: 0;
 }
 
-#page-content .nav header{
-	width: 20vw;
-}
-
 #page-content .nav#tags-nav .nav-content{
 	background: #ffff00;
 }
@@ -152,39 +243,6 @@ h6{
 	color: #ffff00;
 }
 
-#page-content .nav#tags-nav #search-box{
-	height: 40px;
-	width: 100%;
-	padding: 35px 30px 55px 30px;
-}
-
-#page-content .nav#tags-nav #search-box #search{
-	height: 40px;
-	width: 100%;
-	border: 1px solid black;
-	background: #ffff00;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-#page-content .nav#tags-nav #search-box #search:focus{
-	outline: none;
-}
-
-#page-content .nav#tags-nav #clear-box{
-	padding: 2px 30px 0px 30px;
-}
-
-#page-content .nav#tags-nav #clear-box #clear-tags{
-	text-decoration: underline;
-	font-weight: bold;
-	background-color: #ffff00;
-}
-
-#page-content .nav#tags-nav #clear-box #clear-tags:hover{
-	text-decoration: none;
-}
-
 #page-content .nav#names-nav .nav-content{
 	background: #000;
 	color: #fff;
@@ -192,34 +250,6 @@ h6{
 
 #page-content .nav#names-nav .nav-content ul li a:hover, #page-content .nav#names-nav .nav-content ul li a.active{
 	color: #ffff00;
-}
-
-#page-content .nav#names-nav #showcase-map{
-	height: 40px;
-	padding: 35px 30px 55px 30px;
-	display:-webkit-box;
-	display:-ms-flexbox;
-	display:flex;
-	width: 100%;
-}
-
-#page-content .nav#names-nav #showcase-map .btn{
-	-webkit-box-flex: 1;
-	    -ms-flex-positive: 1;
-	        flex-grow: 1;
-	height: 40px;
-	background-color: #ffff00;
-	color: #000;
-	border: none;
-	margin: 0;
-}
-
-#page-content .nav#names-nav #showcase-map .btn:first-child{
-	margin-right: 10px;
-}
-
-#page-content .nav#names-nav #showcase-map .btn:last-child{
-	margin-left: 10px;
 }
 
 #page-content .nav#names-nav #side-nav{
@@ -234,28 +264,6 @@ h6{
 #page-content .nav#names-nav #side-nav ul{
 	padding-top: 130px;
 	list-style: none;
-}
-
-#page-content #main header{
-	height: 85px;
-}
-
-/* background-color: #fff; */
-
-#page-content #main header nav{
-	position: absolute;
-	right: 0;
-	padding: 35px 30px 0px 50px;
-}
-
-#page-content #main header a{
-	padding-left: 15px;
-	padding-right: 15px;
-	text-decoration: underline;
-}
-
-#page-content #main header a:hover, #page-content #main header a.active{
-	text-decoration: none;
 }
 
 #page-content #main .content{
