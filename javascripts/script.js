@@ -218,7 +218,7 @@ $(document).ready(function() {
 
 			fullOverlay(true, content, "#fff");
 
-			$("#page-content header #names-header button").addClass('active');
+			$("#page-content header #names-header button").addClass('active').removeClass('selected');
 			if(!($("#page-content header #names-header #showcase").hasClass('selected'))){
 				$("#page-content header #names-header #showcase").addClass('selected');
 			}
@@ -235,11 +235,33 @@ $(document).ready(function() {
 	// Map button
 	$("#page-content header #names-header #map").hover(function() {
 		// Hover in
-		var content = "<object id='map' type='image/svg+xml' data='images/map.svg'>Your browser does not support SVG</object>";
+		var template = _.template($("#page-content #map-nav").html());
+		var content = template({
+			sectionQuestion: "",
+			sectionTags: ""
+		});
 		fullOverlayHover(true, content);
 	}, function() {
 		//Hover out
 		fullOverlayHover(false);
+	}).click(function(e) {
+		if($("#page-content header #names-header #map").hasClass('selected')){
+			fullOverlay(false, $(this));
+		}else{
+			$("#page-content header #names-header button").addClass('active').removeClass('selected');
+			if(!($("#page-content header #names-header #map").hasClass('selected'))){
+				$("#page-content header #names-header #map").addClass('selected');
+			}
+
+			var template = _.template($("#page-content #map-nav").html());
+			var content = template({
+				sectionQuestion: "",
+				sectionTags: ""
+			});
+			fullOverlay(true, content, "#fff");
+
+			// $("#page-content #full-overlay #map-box svg")
+		}
 	});
 
 
