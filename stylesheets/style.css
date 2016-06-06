@@ -226,13 +226,13 @@ h6{
 
 #page-content .nav .nav-content{
 	padding-top: 130px;
-	padding-bottom: 30px;
+	padding-bottom: 40px;
 	min-height: 100vh;
 }
 
 #page-content .nav .nav-content ul{
 	margin: 0;
-	padding: 0 30px 1.5ch 30px;
+	padding: 0 30px 23px 30px;
 	list-style: none;
 }
 
@@ -283,7 +283,7 @@ h6{
 }
 
 #page-content #main .content{
-	padding: 115px 40px 0px 40px;
+	padding: 115px 40px 40px 40px;
 }
 
 #page-content #main #main-hover-content{
