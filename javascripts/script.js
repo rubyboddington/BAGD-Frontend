@@ -324,11 +324,7 @@ $(document).ready(function() {
 					obj = questions[id-1];
 				}
 				$("#page-content #full-overlay .fixed").html(minimalTemplate(obj));
-				if(!($("#page-content #full-overlay #map-box #map .sections").attr('class').match("active"))){
 
-				}else{
-
-				}
 			}).click(function(e) {
 				$("#page-content #full-overlay #map-box #map .sections").each(function(i) {
 					if($(this).attr('class').match("active")){
@@ -340,6 +336,24 @@ $(document).ready(function() {
 					var currentClasses = $(this).attr('class');
 					$(this).attr('class', currentClasses + " active");
 				}
+
+				var activeQuestion = $(this).attr('id');
+				var questionGalleryCollection = new Backbone.Collection(students_data.filter(function(student){
+					return activeQuestion == student.get("question");
+				}));
+
+				var content = returnRenderedGallery(questionGalleryCollection);
+				$("#page-content #full-overlay #map-box #map-gallery").html(content);
+
+				var id = activeQuestion.substring(1);
+				$("#page-content #full-overlay .fixed").html(minimalTemplate(questions[id-1]));
+
+				$("#page-content #full-overlay #map-box #map-gallery a").click(function(e) {
+					var cid = $(this).children('img').attr('id').substring(5);
+					fullOverlay(false, $("#page-content header #names-header #map"));
+
+					renderStudent(cid);
+				});
 			});
 		}
 	});
@@ -401,7 +415,6 @@ function fullOverlay(show, content, background){
 			$("#page-content #full-overlay").html("").css('display', 'none');
 		}, 200);
 
-		$("#page-content header #tags-header #clear-box").css('display', "revert");
 		$("#page-content header #tags-header #search-box #search").css('background-color', '#ff0');
 
 		$("#page-content header #names-header button").removeClass('active');
