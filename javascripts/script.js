@@ -22,6 +22,7 @@ $(document).ready(function() {
 	$("#page-content header #main-header #home").click(function(e) {
 		$("#page-content #main .content").html(questionMain);
 		$("#page-content header #main-header nav a").removeClass('active');
+		$("#page-content header #tags-header #clear-box").css('display', 'none');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
 			setTagsDisplay($(this));
@@ -33,6 +34,7 @@ $(document).ready(function() {
 	$("#page-content header #main-header #show").click(function(e) {
 		$("#page-content #main .content").html(aboutMain);
 		$("#page-content header #main-header nav a").removeClass('active');
+		$("#page-content header #tags-header #clear-box").css('display', 'none');
 		$(this).addClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
@@ -45,6 +47,7 @@ $(document).ready(function() {
 	$("#page-content header #main-header #press").click(function(e) {
 		$("#page-content #main .content").html(pressMain);
 		$("#page-content header #main-header nav a").removeClass('active');
+		$("#page-content header #tags-header #clear-box").css('display', 'none');
 		$(this).addClass('active');
 		$("#page-content #name-list a").removeClass("active");
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
@@ -116,8 +119,11 @@ $(document).ready(function() {
 				currDisType = "work";
 			}
 			resetNameList(students_data);
+			$("#page-content header #tags-header #clear-box").css('display', 'none');
 			return;
 		}
+
+		$("#page-content header #tags-header #clear-box").css('display', 'block');
 
 		// Create a new filtered collection
 		galleryCollection = new Backbone.Collection(students_data.filter(function(student){
@@ -184,6 +190,7 @@ $(document).ready(function() {
 		}else{
 			$("#page-content #main .content").html(questionMain);
 		}
+		$("#page-content header #tags-header #clear-box").css('display', 'none');
 	});
 
 

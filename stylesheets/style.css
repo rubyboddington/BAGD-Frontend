@@ -150,6 +150,7 @@ h6{
 
 #page-content header #tags-header #clear-box{
 	padding: 2px 30px 0px 30px;
+	display: none;
 }
 
 #page-content header #tags-header #clear-box #clear-tags{
