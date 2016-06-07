@@ -206,9 +206,8 @@ h6{
 
 #page-content header #main-header{
 	height: 85px;
+	background-color: #fff;
 }
-
-/* background-color: #fff; */
 
 #page-content header #main-header nav{
 	position: absolute;
@@ -321,12 +320,25 @@ h6{
 }
 
 #page-content #main #studentWrapper article, #page-content #main #studentWrapper p{
-	max-width: 700px;
+	width: 100%;
+}
+
+@media only screen and (min-width: 2880px){
+
+	#page-content #main #studentWrapper article, #page-content #main #studentWrapper p{
+		max-width: 1600px;
+	}
 }
 
 #page-content #main #studentWrapper img, #page-content #main #studentWrapper iframe{
 	width: 100%;
-	max-width: 700px;
+}
+
+@media only screen and (min-width: 2880px){
+
+	#page-content #main #studentWrapper img, #page-content #main #studentWrapper iframe{
+		max-width: 1600px;
+	}
 }
 
 #page-content #main #questions{
