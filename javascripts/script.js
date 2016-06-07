@@ -397,18 +397,25 @@ $(document).ready(function() {
 			}));
 
 			$("#page-content header #tags-header #search-box #status-icon")
-				.attr('src', './images/search-exit.png')
-				.click(function(e) {
-					$("#page-content header #tags-header #search-box input").val("").trigger('keyup');
-				});
+				.attr('src', './images/search-exit.png');
 
 			searchCollection.add(tagsSearchCollection.toJSON());
 		}else{
 			searchCollection = [];
 
 			$("#page-content header #tags-header #search-box #status-icon")
-				.attr('src', './images/search-enter.png')
-				.unbind("click");
+				.attr('src', './images/search-enter.png');
+		}
+
+		if($("#page-content header #tags-header #search-box #status-icon").attr('src').match("exit")){
+			$("#page-content header #tags-header #search-box #status-icon").click(function(e) {
+				$("#page-content header #tags-header #search-box input").val("").trigger('keyup');
+			});
+		}else{
+			$("#page-content header #tags-header #search-box #status-icon").click(function(e) {
+				console.log("huh");
+				$("#page-content header #tags-header #search-box input").trigger("focus");
+			});
 		}
 
 		if (searchCollection.length === 0){
