@@ -240,6 +240,11 @@ $(document).ready(function() {
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
 	});
 
+	$("#page-content #tags-nav #show-other-tags").click(function(e) {
+		$(this).css('display', 'none');
+		$("#page-content #tags-nav #other-tags").css('display', 'inline');
+	});
+
 
 	/*--------------------------------------------------------*/
 	/*                        Names                           */
