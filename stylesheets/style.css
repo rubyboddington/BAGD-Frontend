@@ -395,6 +395,21 @@ h6{
 	opacity: 0;
 }
 
+#page-content #main #press-contact ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#page-content #main #press-contact a{
+	text-decoration: underline;
+	color: #000;
+}
+
+#page-content #main #press-contact a:hover{
+	text-decoration: none;
+}
+
 #page-content .gallery{
 	display: -webkit-box;
 	display: -ms-flexbox;
