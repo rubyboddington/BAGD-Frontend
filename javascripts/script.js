@@ -377,6 +377,25 @@ $(document).ready(function() {
 			searchCollection = new Backbone.Collection(students_data.filter(function(student){
 				return student.get("name").toLowerCase().match(reg);
 			}));
+
+			var selectedTags = [];
+			var allTags = [];
+			$("#page-content #tags-nav li a").each(function(i) {
+				allTags.push($(this).text());
+			});
+			_.each(allTags, function(el){
+				if(el.toLowerCase().match(reg)){
+					selectedTags.push(el.substring(2));
+				}
+			});
+			var tagsSearchCollection = new Backbone.Collection(students_data.filter(function(student){
+				var tags = student.get("tags");
+				if (_.intersection(tags, selectedTags).length !== 0){
+					return true;
+				}
+			}));
+
+			searchCollection.add(tagsSearchCollection.toJSON());
 		}else{
 			searchCollection = [];
 		}
