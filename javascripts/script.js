@@ -264,7 +264,7 @@ $(document).ready(function() {
 				$("#page-content header #names-header #showcase").addClass('selected');
 			}
 
-			$("#page-content #search-overlay .gallery a").click(function(e) {
+			$("#page-content #full-overlay .gallery a").click(function(e) {
 				var cid = $(this).children('img').attr('id').substring(5);
 				fullOverlay(false, $("#page-content header #names-header #showcase"));
 
@@ -307,15 +307,15 @@ $(document).ready(function() {
 			mapActive(true);
 
 			var minimalTemplate = _.template($("#page-content #map-nav .fixed").html());
-			$("#page-content #search-overlay #map-box #map .sections").hover(function() {
+			$("#page-content #full-overlay #map-box #map .sections").hover(function() {
 				// Hover in
 				var id = $(this).attr("id").substring(1);
 				var minimalContent = minimalTemplate(questions[id-1]);
-				$("#page-content #search-overlay .fixed").html(minimalContent);
+				$("#page-content #full-overlay .fixed").html(minimalContent);
 			}, function() {
 				// Hover out
 				var id = -1;
-				$("#page-content #search-overlay #map-box #map .sections").each(function(i) {
+				$("#page-content #full-overlay #map-box #map .sections").each(function(i) {
 					if($(this).attr('class').match("active")){
 						id = $(this).attr("id").substring(1);
 					}
@@ -330,10 +330,10 @@ $(document).ready(function() {
 				}else{
 					obj = questions[id-1];
 				}
-				$("#page-content #search-overlay .fixed").html(minimalTemplate(obj));
+				$("#page-content #full-overlay .fixed").html(minimalTemplate(obj));
 
 			}).click(function(e) {
-				$("#page-content #search-overlay #map-box #map .sections").each(function(i) {
+				$("#page-content #full-overlay #map-box #map .sections").each(function(i) {
 					if($(this).attr('class').match("active")){
 						var noActive = $(this).attr('class').replace(" active", "");
 						$(this).attr('class', noActive);
@@ -350,12 +350,12 @@ $(document).ready(function() {
 				}));
 
 				var content = returnRenderedGallery(questionGalleryCollection);
-				$("#page-content #search-overlay #map-box #map-gallery").html(content);
+				$("#page-content #full-overlay #map-box #map-gallery").html(content);
 
 				var id = activeQuestion.substring(1);
-				$("#page-content #search-overlay .fixed").html(minimalTemplate(questions[id-1]));
+				$("#page-content #full-overlay .fixed").html(minimalTemplate(questions[id-1]));
 
-				$("#page-content #search-overlay #map-box #map-gallery a").click(function(e) {
+				$("#page-content #full-overlay #map-box #map-gallery a").click(function(e) {
 					var cid = $(this).children('img').attr('id').substring(5);
 					fullOverlay(false, $("#page-content header #names-header #map"));
 
@@ -615,9 +615,9 @@ function rebindEvents(){
 
 function mapActive(active){
 	if(active){
-		$("#page-content #search-overlay #map-box #map text").css('display', 'inline');
+		$("#page-content #full-overlay #map-box #map text").css('display', 'inline');
 	}else{
-		$("#page-content #search-overlay #map-box #map text").css('display', 'none');
+		$("#page-content #full-overlay #map-box #map text").css('display', 'none');
 	}
 }
 
