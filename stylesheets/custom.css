@@ -167,7 +167,7 @@ h6{
 					height: 40px;
 					background-color: $yellow;
 					color: $black;
-					border: 1px solid black;
+					border: 1px solid $yellow;
 					margin: 0;
 
 					&:first-child{
@@ -179,11 +179,13 @@ h6{
 
 					&.active{
 						background-color: $white;
+						border: 1px solid $black;
 					}
 
 					&:hover, &.active.selected{
 						background-color: $black;
 						color: $white;
+						border: 1px solid $black;
 					}
 
 					&:focus{
