@@ -227,7 +227,8 @@ h6{
 #page-content header #main-header nav{
 	position: absolute;
 	right: 0;
-	padding: 35px 30px 0px 50px;
+	padding: 35px 30px 0px 40px;
+	width: 60vw;
 }
 
 #page-content header #main-header a{
@@ -238,6 +239,15 @@ h6{
 
 #page-content header #main-header a:hover, #page-content header #main-header a.active{
 	text-decoration: none;
+}
+
+#page-content header #main-header a#press, #page-content header #main-header a#show{
+	float: right;
+}
+
+#page-content header #main-header a#home{
+	float: left;
+	padding-left: 0;
 }
 
 #page-content section{
