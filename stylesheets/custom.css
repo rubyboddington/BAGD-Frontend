@@ -309,7 +309,7 @@ h6{
 
 		#main-hover-content{
 			word-wrap: break-word;
-			padding: 55px 40px 0px 40px;
+			padding: 0px 40px 0px 40px;
 			position: fixed;
 			display: none;
 			background-color: $white;

@@ -110,6 +110,7 @@ $(document).ready(function() {
 		var txt = $(this).text().substring(2);
 		currMain = $("#page-content #main .content").html();
 		mainOverlay(true, txt);
+		$("#page-content header #main-header").css('display', 'none');
 
 		students_data.each(function(student, key){
 			var matched = false;
@@ -132,6 +133,7 @@ $(document).ready(function() {
 	}, function() {
 		// Hover out
 		mainOverlay(false);
+		$("#page-content header #main-header").css('display', 'inline');
 		$("#page-content #name-list a").removeClass("active");
 		if (currDisID !== "" && currDisType == "work"){
 			$("#page-content #name-list #" + currDisID).addClass("active");
@@ -634,11 +636,15 @@ function rebindEvents(){
 			$(this).addClass("active");
 		}
 		mainOverlay(true, $(this).text());
+		$("#page-content header #main-header").css('display', 'none');
 	}, function() {
 		// Hover out
 		if($(this).hasClass("active") && currDisID != $(this).attr("id")){
 			$(this).removeClass("active");
 		}
+		$("#page-content #names-nav ul").mouseleave(function(e) {
+			$("#page-content header #main-header").css('display', 'inline');
+		});
 	});
 	// Just so that in between hover the overlay doesn't flash
 	$("#page-content #names-nav ul").hover(function() {}, function() {
