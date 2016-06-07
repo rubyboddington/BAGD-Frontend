@@ -300,6 +300,7 @@ h6{
 }
 
 #page-content #main #main-hover-content{
+	word-wrap: break-word;
 	padding: 55px 40px 0px 40px;
 	position: fixed;
 	display: none;
@@ -308,13 +309,6 @@ h6{
 	width: 100%;
 	max-width: 60vw;
 	z-index: 100;
-}
-
-#page-content #main #main-hover-content h1{
-	-webkit-hyphens: manual;
-	   -moz-hyphens: manual;
-	    -ms-hyphens: manual;
-	        hyphens: manual;
 }
 
 #page-content #main #studentWrapper a{
