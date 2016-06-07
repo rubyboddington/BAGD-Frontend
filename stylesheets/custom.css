@@ -118,7 +118,7 @@ h6{
 		#tags-header{
 			#search-box{
 				height: 40px;
-				width: 100%;
+				width: 20vw;
 				padding: 35px 30px 55px 30px;
 
 				#search{
@@ -136,6 +136,13 @@ h6{
 					&:focus{
 						outline: none;
 					}
+				}
+
+				#status-icon{
+					position: absolute;
+					margin-left: -35px;
+					margin-top: 5px;
+					cursor: pointer;
 				}
 			}
 

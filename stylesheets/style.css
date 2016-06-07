@@ -133,7 +133,7 @@ h6{
 
 #page-content header #tags-header #search-box{
 	height: 40px;
-	width: 100%;
+	width: 20vw;
 	padding: 35px 30px 55px 30px;
 }
 
@@ -152,6 +152,13 @@ h6{
 
 #page-content header #tags-header #search-box #search:focus{
 	outline: none;
+}
+
+#page-content header #tags-header #search-box #status-icon{
+	position: absolute;
+	margin-left: -35px;
+	margin-top: 5px;
+	cursor: pointer;
 }
 
 #page-content header #tags-header #clear-box{
