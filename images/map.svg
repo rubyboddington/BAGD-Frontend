@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg enable-background="new 0 0 2399.55 448.937" height="448.937px" id="Layer_1" version="1.1" viewbox="0 0 2399.55 448.937" width="2399.55px" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<svg enable-background="new 0 0 2399.55 448.937" height="448.937px" id="map" version="1.1" viewbox="0 0 2399.55 448.937" width="2399.55px" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
     <rect fill="#FFFFFF" height="125.389" stroke="#000000" stroke-miterlimit="10" stroke-width="5.6693" width="1083.127" x="2.835" y="320.712">
     </rect>
     <rect fill="#FFFFFF" height="113.521" stroke="#000000" stroke-miterlimit="10" stroke-width="5.6693" width="111.319" x="2.835" y="207.19">
@@ -20,7 +20,7 @@
             </rect>
             <rect fill="none" height="95" width="99" x="283.969" y="144.753">
             </rect>
-            <text font-family="'GTCinetypeLight'" font-size="120" transform="matrix(1 0 0 1 309.77 235.2329)">
+            <text font-family="'GTCinetypeLight'" font-size="120" transform="matrix(1 0 0 1 309.77 235.2329)" text-anchor="left">
                 1
             </text>
         </g>
@@ -38,7 +38,7 @@
             </rect>
             <rect fill="none" height="95" width="99" x="718.167" y="144.753">
             </rect>
-            <text font-family="'GTCinetypeLight'" font-size="120" transform="matrix(1 0 0 1 735.2085 235.2329)">
+            <text font-family="'GTCinetypeLight'" font-size="120" transform="matrix(1 0 0 1 735.2085 235.2329)" text-anchor="start">
                 3
             </text>
         </g>

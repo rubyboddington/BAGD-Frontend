@@ -496,6 +496,10 @@ h6{
 	        justify-content: center;
 }
 
+#page-content .full-overlay#full-overlay .fixed{
+	z-index: 10;
+}
+
 #page-content .full-overlay#full-overlay-hover{}
 
 #page-content .full-overlay#search-overlay{

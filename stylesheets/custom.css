@@ -477,6 +477,10 @@ h6{
 			.gallery{
 				justify-content: center;
 			}
+
+			.fixed{
+				z-index: 10;
+			}
 		}
 
 		&#full-overlay-hover{
