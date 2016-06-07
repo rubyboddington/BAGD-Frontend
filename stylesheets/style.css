@@ -204,6 +204,10 @@ h6{
 	color: #fff;
 }
 
+#page-content header #names-header #showcase-map .btn:focus{
+	outline: 0;
+}
+
 #page-content header #main-header{
 	height: 85px;
 	background-color: #fff;
