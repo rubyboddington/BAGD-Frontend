@@ -380,18 +380,18 @@
 				): if (typeof link_to_personal_website !== "undefined") { :(
 					): var r = /^https?:\/\/(.+?)\/?$/g; :(
 					): var t = link_to_personal_website.replace(r, "$1"); :(
-					<p><a href="(: link_to_personal_website :)" target=_blank>(: t :)</a><br>
+					<p><a href="(: link_to_personal_website :)" target=_blank>(: t :)</a></p>
 				): } :(
 
 				): if (typeof email !== "undefined") { :(
-					<a href="mailto:(: email :)" target=_top>Email</a></p>
+					<p><a href="mailto:(: email :)" target=_top>Email</a>
 				): } :(
 
 				): if (typeof twitter !== "undefined") { :(
 					): if (twitter.charAt(0) == "@"){ :(
-						<p><a href="): print('https://twitter.com/' + twitter.substring(1)); :(" target=_blank>Twitter</a><br>
+						<a href="): print('https://twitter.com/' + twitter.substring(1)); :(" target=_blank>Twitter</a><br>
 					): }else{ :(
-						<p><a href="): print('https://twitter.com/' + twitter); :(" target=_blank>Twitter</a><br>
+						<a href="): print('https://twitter.com/' + twitter); :(" target=_blank>Twitter</a><br>
 					): } :(
 				): } :(
 
@@ -486,6 +486,66 @@
 			</script>
 		</div>
 
+
+		<!--              Mobile DOM                 -->
+		<div id="mobile-content">
+			<header class="holding-page">
+                Central Saint Martins<br>
+                BA Graphic Design<br>
+                Degree Show
+                <br><br>
+                <u>22–26 June 2016</u>
+
+                <article id="show-details">
+                    <p>
+                    Weds: 12–8pm<br>
+                    Thurs: 12–4pm<br>
+                    Fri: 12–8pm<br>
+                    Sat to Sun: 12–6pm<br>
+                    </p>
+                    <p>
+                    Last entry: 30 minutes before closing
+                    </p>
+                    <p>
+                    Location:<br>
+                    Studios F &amp; K, Floor 2<br>
+                    1 Granary Square, King's Cross<br>
+                    London, N1C 4AA<br>
+                    </p>
+                </article>
+            </header>
+            <section id="questions" class="holding-page">
+                How does graphic communication (re)solve <u><img src="./images/holding-page/tumblr_n1rpj1X84L1scirugo1_500.gif" alt="">problems</u> <em>?</em>
+
+                How do we find a <u><img src="./images/holding-page/tumblr_n3ze44ziXj1s6qwwxo1_400.gif" alt="">voice</u> in a commercial world <em>?</em>
+
+                How do we (re)design who we are <em>?</em>
+
+                Is <u><img src="./images/holding-page/technology.gif" alt="">technology</u> leading us to <u><img src="./images/holding-page/untitled-600x397.png" alt="">utopia</u> or <u><img src="./images/holding-page/tumblr_o6p0bq3UsO1qz732no1_r2_400.gif" alt="">dystopia</u> <em>?</em>
+
+                How do we (re)materialise <u><img src="./images/holding-page/culture.gif" alt="">culture</u> <em>?</em>
+
+                What is <u><img src="./images/holding-page/Donald-Trump-EMGN1.jpg" alt="">wrong</u> with design or society <em>?</em>
+
+                How is reality formed by <u><img src="./images/holding-page/moma-magritte-interpretationofdreams.jpg" alt="" style="width: 250px; margin-top: -115px;">narratives</u> <em>?</em>
+
+                Should design impose <u><img src="./images/holding-page/order.gif" alt="">order</u> or <u><img src="./images/holding-page/tumblr_n1ydj9gWaK1s852lfo1_r1_400.gif" alt="">chaos</u> <em>?</em>
+            </section>
+
+            <section id="sponsors" class="holding-page">
+                Sponsored by
+                <a class="sponsor" href="https://www.grillitype.com" target="_blank">
+                    <img src="./images/sponsors/grilli.png" alt=""><span>Grilli&nbsp;Type</span></a>,
+                <a class="sponsor" href="http://www.brotherscider.co.uk" target="_blank">
+                    <img src="./images/sponsors/brothers.png" alt=""><span>Brothers</span></a>,
+                <a class="sponsor" href="http://www.canowater.com" target="_blank">
+                    <img src="./images/sponsors/water.png" alt=""><span>CanO&nbsp;Water</span></a>,
+                <a class="sponsor" href="https://www.propercorn.com" target="_blank">
+                    <img src="./images/sponsors/propercorn.png" alt=""><span>ProperCorn</span></a>,
+                <a class="sponsor" href="http://www.sambrooksbrewery.co.uk" target="_blank">
+                    <img src="./images/sponsors/sambrooks.png" alt=""><span>Sambrook's Brewery</span></a>
+            </section>
+		</div>
 		<script src="./javascripts/magic.min.js"></script>
 		<script src="./javascripts/script.js"></script>
 	</body>
