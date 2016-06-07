@@ -374,6 +374,10 @@ $(document).ready(function() {
 	/*--------------------------------------------------------*/
 	/*                      Search Box                        */
 	/*--------------------------------------------------------*/
+	$("#page-content header #tags-header #search-box #status-icon").click(function(e) {
+		$("#page-content header #tags-header #search-box input").trigger("focus");
+	});
+
 	$("#page-content header #tags-header #search-box input").keyup(function(e) {
 		e.stopPropagation();
 		var searchCollection;
@@ -418,7 +422,6 @@ $(document).ready(function() {
 			});
 		}else{
 			$("#page-content header #tags-header #search-box #status-icon").click(function(e) {
-				console.log("huh");
 				$("#page-content header #tags-header #search-box input").trigger("focus");
 			});
 		}
