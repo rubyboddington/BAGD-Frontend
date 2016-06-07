@@ -421,7 +421,11 @@
 					<br>
 					): if (typeof hero_image_video != "undefined"){ :(
 						): if (hero_image_video == "Image" && typeof hero_image_medium == "string") { :(
-							): print(smark.generate(hero_image_medium).html); :(
+							): if (hero_image.substring(hero_image.length-3) == "gif"){ :(
+								): print(smark.generate(hero_image).html); :(
+							): }else{ :(
+								): print(smark.generate(hero_image_medium).html); :(
+							): } :(
 						): }else if (hero_image_video == "Video" && typeof hero_video == "string"){ :(
 							): print(smark.generate(hero_video).html); :(
 						): } :(
@@ -433,7 +437,11 @@
 					<br>
 					): if (typeof image_video_1 != "undefined"){ :(
 						): if (image_video_1 == "Image" && typeof image_1_medium == "string") { :(
-							): print(smark.generate(image_1_medium).html); :(
+							): if (image_1.substring(image_1.length-3) == "gif"){ :(
+								): print(smark.generate(image_1).html); :(
+							): }else{ :(
+								): print(smark.generate(image_1_medium).html); :(
+							): } :(
 						): }else if (image_video_1 == "Video" && typeof video_1 == "string"){ :(
 							): print(smark.generate(video_1).html); :(
 						): } :(
@@ -445,7 +453,11 @@
 					<br>
 					): if (typeof image_video_2 != "undefined"){ :(
 						): if (image_video_2 == "Image" && typeof image_2_medium == "string") { :(
-							): print(smark.generate(image_2_medium).html); :(
+							): if (image_2.substring(image_2.length-3) == "gif"){ :(
+								): print(smark.generate(image_2).html); :(
+							): }else{ :(
+								): print(smark.generate(image_2_medium).html); :(
+							): } :(
 						): }else if (image_video_2 == "Video" && typeof video_2 == "string"){ :(
 							): print(smark.generate(video_2).html); :(
 						): } :(
