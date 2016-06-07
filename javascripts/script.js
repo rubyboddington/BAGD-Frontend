@@ -471,6 +471,7 @@ function fullOverlay(show, content, background){
 
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
 		$("#page-content header #tags-header #search-box #search").css('background-color', '#fff');
+		$("#page-content header #main-header").css('background', 'rgba(255,255,255,0)');
 		fullOverlayed = true;
 
 	}else{
@@ -490,6 +491,7 @@ function fullOverlay(show, content, background){
 			content.removeClass('selected');
 		}
 
+		$("#page-content header #main-header").css('background', 'rgba(255,255,255,255)');
 		fullOverlayed = false;
 	}
 }
