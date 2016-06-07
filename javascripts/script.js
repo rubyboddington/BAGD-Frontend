@@ -541,8 +541,18 @@ function returnRenderedGallery(collection){
 
 function enterSearchMode(enter){
 	if(enter){
+		if (!fullOverlayed){
+			if(!($("#page-content header #tags-header #search").hasClass('active'))){
+				$("#page-content header #tags-header #search").addClass('active');
+			}
+		}
+
 		searchOverlay(true);
 	}else{
+		if (!fullOverlayed){
+			$("#page-content header #tags-header #search").removeClass('active');
+		}
+
 		searchOverlay(false);
 	}
 }

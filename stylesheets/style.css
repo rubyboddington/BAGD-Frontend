@@ -139,9 +139,13 @@ h6{
 	height: 40px;
 	width: 100%;
 	border: 1px solid black;
-	background: rgba(0,0,0,0);
+	background-color: #ffff00;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+#page-content header #tags-header #search-box #search.active{
+	background-color: #fff;
 }
 
 #page-content header #tags-header #search-box #search:focus{
