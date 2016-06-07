@@ -225,7 +225,7 @@ h6{
 	text-decoration: none;
 }
 
-#page-content section:not(.hidden, .full-overlay){
+#page-content section{
 	overflow-y: auto;
 	height: 100%;
 	float: left;
