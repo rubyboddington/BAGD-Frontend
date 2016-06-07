@@ -247,11 +247,10 @@ $(document).ready(function() {
 		enterSearchMode(false);
 
 		Math.seedrandom(seed);
-		if (fullOverlayed){
-			// Hide overlay
+
+		if($("#page-content header #names-header #showcase").hasClass('selected')){
 			fullOverlay(false, $(this));
 		}else{
-			// Show overlay
 			var galleryCollection = new Backbone.Collection(students_data.sortBy(function(){
 				return Math.random();
 			}));
