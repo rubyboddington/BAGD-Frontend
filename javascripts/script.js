@@ -387,8 +387,10 @@ $(document).ready(function() {
 			enterSearchMode(true);
 		}
 
-		var search_display = returnRenderedSearch(searchCollection);
-		$("#page-content #search-overlay").html(search_display);
+		if (searchCollection.length !== 0){
+			var search_display = returnRenderedSearch(searchCollection);
+			$("#page-content #search-overlay").html(search_display);
+		}
 
 		$("#page-content #search-overlay #search-results a").click(function(e) {
 			var cid = $(this).attr("id");
@@ -397,6 +399,8 @@ $(document).ready(function() {
 			enterSearchMode(false);
 		});
 	});
+
+
 
 
 	/*--------------------------------------------------------*/
@@ -620,6 +624,54 @@ function rebindEvents(){
 	$("#page-content #names-nav ul").hover(function() {}, function() {
 		// Hover out
 		mainOverlay(false);
+	});
+
+
+	/*--------------------------------------------------------*/
+	/*                       Questions                        */
+	/*--------------------------------------------------------*/
+	var questionSelected = "";
+	$("#page-content #main #questions u").click(function(e) {
+		var qid = $(this).attr('id');
+		questionSelected = qid;
+		var questionCollection = new Backbone.Collection(students_data.filter(function(student){
+			return student.get("question") == qid;
+		}));
+
+		resetNameList(questionCollection);
+		$("#page-content #main #sponsors").css('display', 'none');
+		$(this).siblings().css('opacity', '0');
+
+	}).hover(function() {
+		// Hover in
+		$("#page-content #name-list li a").removeClass('active');
+
+		var qid = $(this).attr('id');
+		if (questionSelected != qid){
+			$(this).css('opacity', '1');
+		}
+
+		students_data.each(function(student, key){
+			if(student.get("question") == qid){
+				if(!($("#page-content #name-list #" + student.cid).hasClass("active"))){
+					$("#page-content #name-list #" + student.cid).addClass("active");
+				}
+
+			}else{
+				if($("#page-content #name-list #" + student.cid).hasClass("active")){
+					$("#page-content #name-list #" + student.cid).removeClass("active");
+				}
+
+			}
+		});
+	}, function() {
+		// Hover out
+		$("#page-content #name-list li a").removeClass('active');
+		var qid = $(this).attr('id');
+
+		if (questionSelected !== "" && questionSelected != qid){
+			$(this).css('opacity', '0');
+		}
 	});
 }
 

@@ -339,6 +339,7 @@ h6{
 #page-content #main #questions u{
 	text-decoration: none;
 	line-height: 1.25em;
+	cursor: pointer;
 }
 
 #page-content #main #questions u:hover{
