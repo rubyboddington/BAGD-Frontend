@@ -735,11 +735,23 @@ function mapActive(active){
 }
 
 function mainOverlay(show, content){
+	// Soft hephen injection here, work on content variable
+	switch(content){
+		case "Annemarieke Kloosterhof":
+			content = injectSoftHyphens(content, 4);
+	}
+
 	if(show){
 		$("#page-content #main #main-hover-content").html("<h1>" + content + "</h1>").css('display', 'block');
 	}else{
 		$("#page-content #main #main-hover-content").css('display', 'none');
 	}
+}
+
+function injectSoftHyphens(string, index){
+	var head = string.substring(0, index);
+	var tail = string.substring(index, string.length);
+	return head + "&shy;" + tail;
 }
 
 function holdingPageDetails(){
