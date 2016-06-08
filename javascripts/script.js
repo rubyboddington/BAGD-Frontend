@@ -628,12 +628,14 @@ function enterSearchMode(enter){
 			}
 		}
 
+		$("#page-content header #main-header").css('background-color', 'rgba(255,255,255,0)');
 		searchOverlay(true);
 	}else{
 		if (!fullOverlayed){
 			$("#page-content header #tags-header #search").removeClass('active');
 		}
 
+		$("#page-content header #main-header").css('background-color', 'revert');
 		searchOverlay(false);
 	}
 }
