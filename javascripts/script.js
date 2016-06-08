@@ -527,7 +527,7 @@ function fullOverlay(show, content, background){
 		}, 10);
 
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
-		$("#page-content header #tags-header #search-box #search").css('background-color', '#fff');
+		$("#page-content header #tags-header #search-box #search").addClass('active');
 		$("#page-content header #main-header").css('background', 'rgba(255,255,255,0)');
 		fullOverlayed = true;
 
@@ -537,7 +537,7 @@ function fullOverlay(show, content, background){
 			$("#page-content #full-overlay").html("").css('display', 'none');
 		}, 200);
 
-		$("#page-content header #tags-header #search-box #search").css('background-color', 'initial');
+		$("#page-content header #tags-header #search-box #search").removeClass('active');
 
 		if (!(isTagsEmpty())){
 			$("#page-content header #tags-header #clear-box").css('display', 'block');
