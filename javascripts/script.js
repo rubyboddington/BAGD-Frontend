@@ -186,8 +186,9 @@ $(document).ready(function() {
 
 		_($("#page-content #tags-nav .nav-content li a")).each(function(el, i){
 			el = $(el);
+			var t = el.text().replace(/\u00AD/g, "");
 			if(el.hasClass("active")){
-				selectedTags.push(el.text().substring(2));
+				selectedTags.push(t.substring(2));
 			}
 		});
 
