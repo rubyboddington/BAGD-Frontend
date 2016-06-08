@@ -536,7 +536,7 @@ function fullOverlay(show, content, background){
 			$("#page-content #full-overlay").html("").css('display', 'none');
 		}, 200);
 
-		$("#page-content header #tags-header #search-box #search").css('background-color', '#ff0');
+		$("#page-content header #tags-header #search-box #search").css('background-color', 'initial');
 
 		if (!(isTagsEmpty())){
 			$("#page-content header #tags-header #clear-box").css('display', 'block');
