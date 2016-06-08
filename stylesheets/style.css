@@ -156,8 +156,8 @@ h6{
 
 #page-content header #tags-header #search-box #status-icon{
 	position: absolute;
-	margin-left: -35px;
-	margin-top: 5px;
+	left: calc(20vw - 65px);
+	top: 40px;
 	cursor: pointer;
 }
 
