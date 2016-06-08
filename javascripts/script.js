@@ -18,6 +18,40 @@ $(document).ready(function() {
 	// enums for currDisType: questions, work, about, press, gallery
 	window.currDisType = "questions";
 
+	var allTags = [
+				   "Advertising",
+				   "Design & Interaction",
+				   "Illustration",
+				   "Moving Image",
+				   "Editorial",
+				   "Craft",
+				   "Photography",
+				   "Typography",
+				   "Print",
+				   "Web",
+				   "Digital Media",
+				   "Installation",
+				   "Social Design",
+				   "Branding",
+				   "Fine Art",
+				   "Social Media",
+				   "Experiential",
+				   "Identity",
+				   "Problem Solving",
+				   "Mapping",
+				   "Utopia/Dystopia",
+				   "Culture",
+				   "Reality/Fiction",
+				   "System",
+				   "Chaos/Order",
+				   "Language",
+				   "Storytelling",
+				   "Environment",
+				   "Technology",
+				   "Education",
+				   "Society"
+				   ];
+
 	// Constants
 	window.questions = [
 		{
@@ -389,13 +423,9 @@ $(document).ready(function() {
 			}));
 
 			var selectedTags = [];
-			var allTags = [];
-			$("#page-content #tags-nav li a").each(function(i) {
-				allTags.push($(this).text());
-			});
 			_.each(allTags, function(el){
 				if(el.toLowerCase().match(reg)){
-					selectedTags.push(el.substring(2));
+					selectedTags.push(el);
 				}
 			});
 			var tagsSearchCollection = new Backbone.Collection(students_data.filter(function(student){
