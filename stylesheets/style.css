@@ -97,6 +97,10 @@ h6{
 	margin-bottom: 5px;
 }
 
+::-webkit-scrollbar {
+	display: none;
+}
+
 #loading{
 	position: fixed;
 	display: block;
