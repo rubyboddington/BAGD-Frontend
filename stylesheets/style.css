@@ -402,7 +402,7 @@ h6{
 }
 
 #page-content #main #questions u:hover{
-	box-shadow: inset 0px -13px 0px -7px rgba(0,0,0,1);
+	box-shadow: inset -0.5px -2px 0px 0px rgba(0,0,0,1);
 }
 
 #page-content #main #sponsors{
