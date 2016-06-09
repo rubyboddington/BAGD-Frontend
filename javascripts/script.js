@@ -55,36 +55,36 @@ $(document).ready(function() {
 	// Constants
 	window.questions = [
 		{
-			sectionQuestion: "How does graphic communication (re)solve problems?",
-			sectionTags: "problem-solving, problem-revealing"
-		},
-		{
-			sectionQuestion: "How do we find a voice in a commercial world?",
-			sectionTags: "consumerism, anti-consumerism, commerce, retail, editorial, branding"
+			sectionQuestion: "How do we (re)materialise culture?",
+			sectionTags: "history, archeology, old media, craft and traditional techniques, obsolete technology, vintage, retro, experiential"
 		},
 		{
 			sectionQuestion: "How do we (re)design who we are?",
 			sectionTags: "gender, identity, anthropology, psychology, behaviour studies, contemporary subcultures, DIY culture, biography, education"
 		},
 		{
-			sectionQuestion: "Is technology leading us to utopia or dystopia?",
-			sectionTags: "connected life, new technologies, UX, social media, internet, alternative future, dystopia & utopia, mass media, information society, speculative design"
-		},
-		{
-			sectionQuestion: "How do we (re)materialise culture?",
-			sectionTags: "history, archeology, old media, craft and traditional techniques, obsolete technology, vintage, retro, experiential"
-		},
-		{
-			sectionQuestion: "What is wrong with design/society?",
-			sectionTags: "ecology, environment, current affairs, politics, social issues, inequality, activism, play"
-		},
-		{
 			sectionQuestion: "How is reality formed by narratives?",
 			sectionTags: "fiction, non-fiction, reportage, memory, experiential, myths, tales, folklore, personal narrative, stories, biographies, language, communication"
 		},
 		{
+			sectionQuestion: "How does graphic communication (re)solve problems?",
+			sectionTags: "problem-solving, problem-revealing"
+		},
+		{
+			sectionQuestion: "Is technology leading us to utopia or dystopia?",
+			sectionTags: "connected life, new technologies, UX, social media, internet, alternative future, dystopia & utopia, mass media, information society, speculative design"
+		},
+		{
 			sectionQuestion: "Should design impose order or chaos?",
 			sectionTags: "educational, didactic, learning, hacking, disruption, sense, perception, subversion, chance, chaos, systematic thinking, systems, play, editorial"
+		},
+		{
+			sectionQuestion: "How do we find a voice in a commercial world?",
+			sectionTags: "consumerism, anti-consumerism, commerce, retail, editorial, branding"
+		},
+		{
+			sectionQuestion: "What is wrong with design/society?",
+			sectionTags: "ecology, environment, current affairs, politics, social issues, inequality, activism, play"
 		}
 	];
 
