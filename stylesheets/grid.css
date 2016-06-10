@@ -1,0 +1,15 @@
+.l2{
+	width: 20vw;
+}
+
+.l6{
+	width: 60vw;
+}
+
+.hidden{
+	display: none;
+}
+
+.fixed{
+	position:fixed;
+}
