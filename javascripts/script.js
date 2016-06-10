@@ -319,7 +319,7 @@ $(document).ready(function() {
 
 		if($("#page-content header #names-header #showcase").hasClass('selected')){
 			fullOverlay(false, $(this));
-
+			var s;
 			switch(currDisType){
 				case "questions":
 					routes.navigate("");
@@ -334,16 +334,26 @@ $(document).ready(function() {
 					break;
 
 				case "work":
+					s = students_data.find(function(student){
+						var cid = student.cid;
+						return cid == currDisID;
+					});
+					routes.navigate(s.get("name").replace(/\s/g, "").toLowerCase());
 					break;
 
 				case "gallery":
 					if(currDisID === ""){
 						routes.navigate("");
 					}else{
-
+						s = students_data.find(function(student){
+							var cid = student.cid;
+							return cid == currDisID;
+						});
+						routes.navigate(s.get("name").replace(/\s/g, "").toLowerCase());
 					}
 					break;
 			}
+			$(".hidden").css('display', 'none');
 		}else{
 			routes.navigate("showcase");
 
@@ -387,6 +397,7 @@ $(document).ready(function() {
 			fullOverlay(false, $(this));
 			mapActive(false);
 
+			var s;
 			switch(currDisType){
 				case "questions":
 					routes.navigate("");
@@ -401,16 +412,26 @@ $(document).ready(function() {
 					break;
 
 				case "work":
+					s = students_data.find(function(student){
+						var cid = student.cid;
+						return cid == currDisID;
+					});
+					routes.navigate(s.get("name").replace(/\s/g, "").toLowerCase());
 					break;
 
 				case "gallery":
 					if(currDisID === ""){
 						routes.navigate("");
 					}else{
-
+						s = students_data.find(function(student){
+							var cid = student.cid;
+							return cid == currDisID;
+						});
+						routes.navigate(s.get("name").replace(/\s/g, "").toLowerCase());
 					}
 					break;
 			}
+			$(".hidden").css('display', 'none');
 		}else{
 			routes.navigate("map");
 
@@ -690,13 +711,13 @@ function renderStudent(cid){
 	var students_display = new singleView({model: students_data.get(cid)});
 	$("#page-content #main .content").html(students_display.render().$el);
 
-	$("#page-content #main").scrollTop(0);
-
 	$("#page-content #name-list li a").removeClass('active');
 	var listName = "#page-content #name-list #" + cid;
 	if(!($(listName).hasClass('active'))){
 		$(listName).addClass('active');
 	}
+
+	$("#page-content #main").scrollTop(0);
 }
 
 function returnRenderedGallery(collection){
