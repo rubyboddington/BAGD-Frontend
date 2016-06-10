@@ -169,6 +169,7 @@ $(document).ready(function() {
 	$("#page-content #tags-nav li a").hover(function() {
 		// Hover in
 		var txt = $(this).text().substring(2);
+		txt = txt.replace(/\u00AD/g, "");
 		currMain = $("#page-content #main .content").html();
 		mainOverlay(true, txt);
 		$("#page-content header #main-header").css('display', 'none');
