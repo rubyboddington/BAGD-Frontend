@@ -249,6 +249,10 @@ h6{
 		display: block;
 	}
 
+	section.hidden{
+		display: none;
+	}
+
 	.nav{
 		.nav-content{
 			padding-top: 130px;

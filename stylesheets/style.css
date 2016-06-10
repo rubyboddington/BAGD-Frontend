@@ -268,6 +268,10 @@ h6{
 	display: block;
 }
 
+#page-content section.hidden{
+	display: none;
+}
+
 #page-content .nav .nav-content{
 	padding-top: 130px;
 	padding-bottom: 40px;
