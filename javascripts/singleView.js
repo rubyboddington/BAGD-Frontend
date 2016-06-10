@@ -5,16 +5,16 @@ Backbone.$ = $;
 
 _.templateSettings = {
 	interpolate: /\(:(.+?):\)/g,
-	evaluate: /\):(.+?):\(/g
+	evaluate: /\):(.+?):\(/gm
 };
 
 // The view renderer that only render once instance of a model
 // ie. for displaying a single student's info
 module.exports = Backbone.View.extend({
 	tagName: "article",
-	className: "studentWrapper",
+	id: "studentWrapper",
 
-	template: _.template($("#wrapper").html()),
+	template: _.template($("#singleStudent").html()),
 
 	render: function(){
 		var singleTemplate = this.template(this.model.toJSON());
