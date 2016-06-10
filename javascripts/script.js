@@ -101,6 +101,7 @@ $(document).ready(function() {
 		fullOverlay(false, $("#page-content header #names-header #showcase, #page-content header #names-header #map"));
 		$("#page-content header #tags-header #clear-box").css('display', 'none');
 		$("#page-content #name-list a").removeClass("active");
+		$("#page-content #names-nav").scrollTop(0);
 		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
 			setTagsDisplay($(this));
 		});
