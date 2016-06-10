@@ -5,8 +5,8 @@ $(document).ready(function() {
 
 
 	// Seed the RNG with today's date
-	var seed = new Date();
-	seed = seed.getDate().toString() + seed.getMonth().toString + seed.getFullYear().toString();
+	window.seed = new Date();
+	seed = seed.getDate().toString() + seed.getMonth().toString() + seed.getFullYear().toString();
 	Math.seedrandom(seed);
 
 	// Save states
@@ -107,6 +107,8 @@ $(document).ready(function() {
 		});
 		resetNameList(students_data);
 		currDisType = "questions";
+
+		routes.navigate("", {trigger: false});
 	});
 	// About
 	$("#page-content header #main-header #show").click(function(e) {
@@ -122,6 +124,9 @@ $(document).ready(function() {
 		});
 		resetNameList(students_data);
 		currDisType = "about";
+
+		routes.navigate("about");
+		$(".hidden").css('display', 'none');
 	});
 	// Press
 	$("#page-content header #main-header #press").click(function(e) {
@@ -137,6 +142,8 @@ $(document).ready(function() {
 		});
 		resetNameList(students_data);
 		currDisType = "press";
+
+		routes.navigate("press", {trigger: false});
 	});
 
 	// Tags navigation menu
@@ -293,7 +300,34 @@ $(document).ready(function() {
 
 		if($("#page-content header #names-header #showcase").hasClass('selected')){
 			fullOverlay(false, $(this));
+
+			switch(currDisType){
+				case "questions":
+					routes.navigate("");
+					break;
+
+				case "press":
+					routes.navigate("press");
+					break;
+
+				case "about":
+					routes.navigate("about");
+					break;
+
+				case "work":
+					break;
+
+				case "gallery":
+					if(currDisID === ""){
+						routes.navigate("");
+					}else{
+
+					}
+					break;
+			}
 		}else{
+			routes.navigate("showcase");
+
 			var galleryCollection = new Backbone.Collection(students_data.sortBy(function(){
 				return Math.random();
 			}));
@@ -333,7 +367,34 @@ $(document).ready(function() {
 		if($("#page-content header #names-header #map").hasClass('selected')){
 			fullOverlay(false, $(this));
 			mapActive(false);
+
+			switch(currDisType){
+				case "questions":
+					routes.navigate("");
+					break;
+
+				case "press":
+					routes.navigate("press");
+					break;
+
+				case "about":
+					routes.navigate("about");
+					break;
+
+				case "work":
+					break;
+
+				case "gallery":
+					if(currDisID === ""){
+						routes.navigate("");
+					}else{
+
+					}
+					break;
+			}
 		}else{
+			routes.navigate("map");
+
 			$("#page-content header #names-header button").addClass('active').removeClass('selected');
 			if(!($("#page-content header #names-header #map").hasClass('selected'))){
 				$("#page-content header #names-header #map").addClass('selected');
@@ -605,6 +666,8 @@ function setTagsDisplay($el){
 }
 
 function renderStudent(cid){
+	routes.navigate(students_data.get(cid).get("name").replace(/\s/g, "").toLowerCase());
+
 	var students_display = new singleView({model: students_data.get(cid)});
 	$("#page-content #main .content").html(students_display.render().$el);
 
