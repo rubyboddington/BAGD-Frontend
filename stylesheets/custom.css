@@ -230,7 +230,7 @@ h6{
 					text-decoration: none;
 				}
 
-				&#press, &#show{
+				&#press, &#show, &#visit{
 					float: right;
 				}
 				&#home{
@@ -464,12 +464,10 @@ h6{
 			width: auto;
 			height: auto;
 			max-width: 300px;
-		    max-height: 300px;
 			margin: 10px;
 
 			img{
 				max-width: 300px;
-				max-height: 300px;
 			}
 
 		    &:after, &:before {

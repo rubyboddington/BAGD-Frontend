@@ -8,6 +8,7 @@ var router = Backbone.Router.extend({
 		"": "home",
 		"press": "press",
 		"about": "about",
+		"visit": "visit",
 		"showcase": "showcase",
 		"map": "map",
 		":name": "studentName"
@@ -23,6 +24,10 @@ var router = Backbone.Router.extend({
 
 	about: function(){
 		$("#page-content header #main-header #show").trigger("click");
+	},
+
+	visit: function(){
+		$("#page-content header #main-header #visit").trigger("click");
 	},
 
 	showcase: function(){

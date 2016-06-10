@@ -252,7 +252,7 @@ h6{
 	text-decoration: none;
 }
 
-#page-content header #main-header a#press, #page-content header #main-header a#show{
+#page-content header #main-header a#press, #page-content header #main-header a#show, #page-content header #main-header a#visit{
 	float: right;
 }
 
@@ -476,13 +476,11 @@ h6{
 	width: auto;
 	height: auto;
 	max-width: 300px;
-	max-height: 300px;
 	margin: 10px;
 }
 
 #page-content .gallery a img{
 	max-width: 300px;
-	max-height: 300px;
 }
 
 #page-content .gallery a:after, #page-content .gallery a:before {

@@ -14,6 +14,7 @@ $(document).ready(function() {
 	var questionMain = $("#page-content #main .content").html();
 	var aboutMain = $("#page-content > #about").html();
 	var pressMain = $("#page-content > #press").html();
+	var visitMain = $("#page-content > #visit").html();
 	window.currDisID = "";
 	// enums for currDisType: questions, work, about, press, gallery
 	window.currDisType = "questions";
@@ -144,6 +145,23 @@ $(document).ready(function() {
 		currDisType = "press";
 
 		routes.navigate("press", {trigger: false});
+	});
+	// Visit
+	$("#page-content header #main-header #visit").click(function(e) {
+		$("#page-content #main .content").html(visitMain);
+		$("#page-content header #main-header nav a").removeClass('active');
+		enterSearchMode(false);
+		fullOverlay(false, $("#page-content header #names-header #showcase, #page-content header #names-header #map"));
+		$("#page-content header #tags-header #clear-box").css('display', 'none');
+		$(this).addClass('active');
+		$("#page-content #name-list a").removeClass("active");
+		$("#page-content #tags-nav li a").removeClass("active").each(function(i) {
+			setTagsDisplay($(this));
+		});
+		resetNameList(students_data);
+		currDisType = "visit";
+
+		routes.navigate("visit", {trigger: false});
 	});
 
 	// Tags navigation menu
