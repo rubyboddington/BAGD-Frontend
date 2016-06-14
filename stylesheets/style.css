@@ -463,6 +463,15 @@ h6{
 	text-decoration: none;
 }
 
+#page-content #main #about-content a{
+	text-decoration: underline;
+	color: #000;
+}
+
+#page-content #main #about-content a:hover{
+	text-decoration: none;
+}
+
 #page-content .gallery{
 	display: -webkit-box;
 	display: -ms-flexbox;

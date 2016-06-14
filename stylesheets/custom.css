@@ -455,6 +455,17 @@ h6{
 				}
 			}
 		}
+
+		#about-content{
+			a{
+				text-decoration: underline;
+				color: $black;
+
+				&:hover{
+					text-decoration: none;
+				}
+			}
+		}
 	}
 
 	.gallery{
