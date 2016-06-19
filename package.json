@@ -11,9 +11,10 @@
     "compile:js": "uglifyjs -m --screw-ie8 -c drop_console=true,warnings=false ./javascripts/magic.js > ./javascripts/magic.min.js",
     "compile:css": "cleancss ./stylesheets/style.css > ./stylesheets/style.min.css",
     "compile": "npm run compile:js && npm run compile:css",
+    "minify": "uglifyjs -m --screw-ie8 -c drop_console=true,warnings=false ./javascripts/script.js > ./javascripts/script.min.js",
     "prewatch": "npm run compile",
     "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(script|magic|magic.min|vendor/**).js' -v -- npm run compile",
-    "predeploy": "npm run compile",
+    "predeploy": "npm run compile && npm run minify",
     "deploy": "surge ."
   },
   "author": "CSM BAGD",
