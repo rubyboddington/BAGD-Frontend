@@ -323,6 +323,16 @@ h6{
 						color: $yellow;
 					}
 				}
+
+				#extra-names{
+					li{
+						color: #888;
+
+						h6{
+							color: $white;
+						}
+					}
+				}
 			}
 
 			#side-nav{

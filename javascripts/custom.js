@@ -84,6 +84,7 @@ window.addEventListener("receivedData", function(){
 
 	window.students_list = new collectionView({collection: students_data});
 	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
+	$("#page-content #name-list").append($("#page-content #missing-names").html());
 
 	// Now you can be ready, everything's loaded in and displayed!
 	$.holdReady(false);

@@ -693,6 +693,11 @@ function fullOverlayHover(show, content, background){
 function resetNameList(collection){
 	students_list = new collectionView({collection: collection});
 	$("#page-content #names-nav .nav-content").html(students_list.render().$el);
+
+	if(_.isEqual(collection, students_data)){
+		$("#page-content #name-list").append($("#page-content #missing-names").html());
+	}
+
 	rebindEvents();
 }
 

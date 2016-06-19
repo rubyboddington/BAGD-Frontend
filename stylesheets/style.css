@@ -332,6 +332,14 @@ h6{
 	color: #ffff00;
 }
 
+#page-content .nav#names-nav .nav-content #extra-names li{
+	color: #888;
+}
+
+#page-content .nav#names-nav .nav-content #extra-names li h6{
+	color: #fff;
+}
+
 #page-content .nav#names-nav #side-nav{
 	float: right;
 	position: relative;
