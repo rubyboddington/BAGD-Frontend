@@ -32,7 +32,7 @@ module.exports = Backbone.View.extend({
 		}, this);
 
 		_.each(groupedList, function(el, key){
-			var header = "<ul><li><h6>" + key + "</h6></li>";
+			var header = "<ul>";
 
 			wholeList += header;
 
