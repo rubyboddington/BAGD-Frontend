@@ -128,7 +128,6 @@ $(document).ready(function() {
 		currDisType = "about";
 
 		routes.navigate("about");
-		$(".hidden").css('display', 'none');
 	});
 	// Press
 	$("#page-content header #main-header #press").click(function(e) {
