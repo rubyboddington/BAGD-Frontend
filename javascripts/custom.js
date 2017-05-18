@@ -4,7 +4,7 @@ var _ = require("underscore");
 var Backbone = require("backbone");
 window.smark = require("smark");
 Backbone.$ = $;
-window.students_data = require("./collection.js");
+window.collection = require("./collection.js");
 window.singleView = require("./singleView.js");
 window.collectionView = require("./collectionView.js");
 window.galleryView = require("./galleryView.js");
@@ -20,12 +20,20 @@ $("#page-content").css('display', 'none');
 var receivedData = new Event("receivedData");
 
 // Fetch data from the backend.
-students_data.fetch({
-	// Dispatch the received data event after the data is succesfully loaded.
-	success: function(){
-		window.dispatchEvent(receivedData);
-	}
+var promises = ();
+students_data = new collection ("");
+// PUT WORDPRESS LINK INTO PARENTHESIS BELOW !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+promises.push($.getJSON ("hello"));
+promises.then(function(data){
+    window.students_data = new collection(data);
+    window.dispatchEvent(receivedData);
 });
+// students_data.fetch({
+// 	// Dispatch the received data event after the data is succesfully loaded.
+// 	success: function(){
+// 		window.dispatchEvent(receivedData);
+// 	}
+// });
 
 
 // The page logic should go in this callback function (rendering etc.)

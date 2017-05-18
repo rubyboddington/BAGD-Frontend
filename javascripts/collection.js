@@ -8,8 +8,8 @@ var model = require("./models.js");
 var collection = Backbone.Collection.extend({
 	model: model,
 	// url: "http://info.csmgraphicdesign.com/wp-json/wp/v2/student_info?filter[posts_per_page]=-1",
-	url: "http://infocsmgraphics.x10host.com/wp-json/wp/v2/student_info?filter[posts_per_page]=-1", // backup
-	// url: "http://localhost/wordpress/wp-json/wp/v2/student_info",
+	// url: "http://infocsmgraphics.x10host.com/wp-json/wp/v2/student_info?filter[posts_per_page]=-1", // backup
+	url: "http://localhost/wordpress/wp-json/wp/v2/student_info",
 	// url: "./response.json",
 
 	comparator: "name"
@@ -17,4 +17,4 @@ var collection = Backbone.Collection.extend({
 
 students_data = new collection();
 
-module.exports = students_data;
+module.exports = collection;
