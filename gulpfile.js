@@ -33,11 +33,11 @@ gulp.task("javascripts", function(){
         .pipe(plumber({
 			errorHandler: onError
 		}))
-        .pipe(source("main.js"))
+        .pipe(source("magic.js"))
         .pipe(gulp.dest("./dist/javascripts/"))
         .pipe(buffer())
         .pipe(uglifyjs(uglifyOptions))
-        .pipe(rename("main.min.js"))
+        .pipe(rename("magic.min.js"))
         .pipe(gulp.dest("./dist/javascripts/"));
 });
 
@@ -49,6 +49,9 @@ gulp.task("copy-libraries-js", function(){
 gulp.task("copy-css", function(){
 	gulp.src("./stylesheets/fonts/*")
 		.pipe(gulp.dest("./dist/stylesheets/fonts"));
+
+    gulp.src("./stylesheets/style.css")
+        .pipe(gulp.dest("./dist/stylesheets/"));
 
 	gulp.src("./stylesheets/img/*")
 		.pipe(gulp.dest("./dist/stylesheets/img"));
@@ -62,9 +65,22 @@ gulp.task("copy-images", function(){
 		.pipe(gulp.dest("./dist/images"));
 });
 
-gulp.task("copy-json", function(){
-	return gulp.src("./responses/*")
-		.pipe(gulp.dest("./dist/responses"));
+gulp.task("copy-js", function(){
+    var uglifyOptions = {
+        mangle: {
+            screw_ie8: true
+        },
+        compress: {
+            screw_ie8: true
+        }
+    };
+    return gulp.src("./javascripts/script.js")
+        .pipe(rename("./main.js"))
+        .pipe(gulp.dest("./dist/javascripts"))
+        .pipe(buffer())
+        .pipe(uglifyjs(uglifyOptions))
+        .pipe(rename("main.min.js"))
+        .pipe(gulp.dest("./dist/javascripts/"));
 });
 
 gulp.task("copy-html", function(){
@@ -112,7 +128,7 @@ gulp.task("deploy:prod", ["default"], function(){
 });
 
 
-gulp.task("static-files", ["copy-libraries-js", "copy-css", "copy-images", "copy-json", "copy-html"]);
+gulp.task("static-files", ["copy-libraries-js", "copy-css", "copy-images", "copy-html", "copy-js"]);
 gulp.task("default", ["javascripts", "static-files"]);
 gulp.task("deploy", ["deploy:dev"]);
 
