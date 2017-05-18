@@ -15,7 +15,7 @@
     "prewatch": "npm run compile",
     "watch": "http-server & open http://localhost:8080/ && onchange './stylesheets/!(normalize.min|style|style.min).css' './javascripts/!(script|magic|magic.min|vendor/**).js' -v -- npm run compile",
     "predeploy:dev": "npm run compile && npm run minify",
-    "deploy:dev": "echo 'csmbagd.surge.sh' > CNAME && surge .",
+    "deploy:dev": "echo 'https://csmbagd.surge.sh' > CNAME && surge .",
     "deploy:prod": "echo '2016.csmgraphicdesign.com' > CNAME && surge .",
     "predeploy": "npm run compile && npm run minify",
     "deploy": "npm run deploy:prod"
@@ -24,18 +24,23 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "autoprefixer": "~5.2.0",
+    "browser-sync": "^2.18.11",
     "browserify": "~13.0.1",
     "browserify-shim": "~3.8.9",
     "clean-css": "~3.4.12",
     "favicons": "^4.7.1",
-    "http-server": "^0.9.0",
-    "onchange": "~2.4.0",
-    "postcss": "^5.0.19",
-    "postcss-cli": "~2.5.2",
-    "postcss-import": "8.1.2",
-    "postcss-nested": "~1.0.0",
-    "postcss-simple-vars": "~2.0.0",
-    "uglify-js": "~2.6.2"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.3.1",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-favicons": "^2.2.7",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "uglify-js": "~2.6.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "browserify": {
     "transform": [
@@ -48,6 +53,6 @@
     "backbone": "global:Backbone"
   },
   "dependencies": {
-    "smark": "git://github.com/limzykenneth/smark.git#2.0-dev"
+    "smark": "~2.0.0"
   }
 }

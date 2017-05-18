@@ -36,3 +36,4 @@ jspm_packages
 # Custom
 favicon.html
 .dbignore
+dist/**/*
